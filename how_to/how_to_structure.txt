@@ -1,2 +1,11 @@
 recieve every info from main
 
+setup array of philo(pthread)
+for each philo
+{
+	instantiate pthread
+		pause all threads after creation
+	start all pthread
+	taking in param : function to eat
+			function to eat takes param : number of philo (for mutexs)
+}

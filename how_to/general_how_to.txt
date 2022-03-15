@@ -5,16 +5,21 @@ each philo must :
 	1- eat
 	2- sleep
 	3- think
+	4- repeat
 in that order and until one of them dies
 
 for each philo x
 	instantiate pthread
 
+each philo should have :
+	- int id
+	- pthread : which param : function to eat
+	- a time in miliseconds, to detemine if he took to long to make an action
+
 mutexs (forks)
 	there is an array of mutexs
 	this array is x long (number of philosophs)
 	every time a philosopher takes a fork, he locks the mutex
-(what happens if two threads are in the function and they both take one fork ?)
 each philo will be : 
 	- righthanded if even id
 	- lefthanded if odd id
@@ -24,3 +29,5 @@ how to establish time in miliseconds
 setup lib time.h
 get time at begining of function/action
 for each action, do : current time - time at begining
+
+for time, use tm_sec to get the time in seconds
