@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 18:09:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:45:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ typedef struct s_info
 
 typedef struct s_philo
 {
-	int	id;
+	int		id;
+	t_info	info;
 }				t_philo;
+
+//struct
+t_philo	*init_philo(long philo_nbr, t_info info, pthread_t **tid);
 
 //time
 long	get_current_time(void);

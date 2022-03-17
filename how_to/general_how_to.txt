@@ -33,3 +33,7 @@ for each action, do : current time - time at begining
 for time, use tm_sec to get the time in seconds
 
 the parent of the threads needs to be alive until threads "finish"
+
+
+
+!!!!!! USLEEP !!!!!!!
