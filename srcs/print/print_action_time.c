@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 01:33:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 02:50:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/17 05:19:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*format_msg(long lapsed_time, int id, int action)
 	char	*msg;
 
 	str = am_ltoa(lapsed_time);
-	tmp = am_ltoa(id);
+	tmp = am_ltoa(id + 1);
 	msg = am_strjoin(str, " ");
 	free(str);
 	str = am_strjoin(msg, tmp);

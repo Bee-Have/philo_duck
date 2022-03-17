@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 04:56:44 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/17 05:16:43 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <sys/time.h>
+
+# define ERNO_ARGS
 
 # define MSG_FORK 0
 # define MSG_EAT 1
