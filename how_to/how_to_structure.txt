@@ -1,4 +1,6 @@
-recieve every info from main
+recieve info from argv
+
+atoi each element to know the actual infos
 
 setup array of philo(pthread)
 for each philo
@@ -9,3 +11,4 @@ for each philo
 	taking in param : function to eat
 			function to eat takes param : number of philo (for mutexs)
 }
+

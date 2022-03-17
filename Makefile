@@ -14,7 +14,9 @@ INCLUDES = -I$(INC_DIR)
 
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
-SRCS = main.c
+SRCS = main_test.c \
+	string_tools.c nbr_tools.c \
+	time.c print_action_time.c
 
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
