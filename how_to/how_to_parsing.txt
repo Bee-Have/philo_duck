@@ -1,0 +1,9 @@
+
+./philo 0 1 2 3 4
+
+0 = number of philosophs
+1 = if philo doesn't eat in specified time, he dies
+2 = the time a philo will take to eat
+3 = the time a philo will take to sleep
+4 = (this arg is optional) the number of time a philo must eat
+	(once all philo have eaten the given number of times, the simulation end)
