@@ -1,7 +1,7 @@
 NAME = philo
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
 SRCS_DIR = $(shell find srcs -type d)
 
@@ -14,9 +14,11 @@ INCLUDES = -I$(INC_DIR)
 
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
-SRCS = main_test.c \
+SRCS = main.c \
+	args_manager.c \
+	time.c print_action_time.c \
 	string_tools.c nbr_tools.c \
-	time.c print_action_time.c
+	error_manager.c
 
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
@@ -34,7 +36,7 @@ re: fclean all
 clean:
 	rm -rf $(OBJS_DIR)
 
-fclean: clear
+fclean: clean
 	rm -rf $(NAME)
 
 .PHONY : fclean clean re all 

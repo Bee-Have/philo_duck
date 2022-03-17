@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 05:16:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:09:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <string.h>
+# include <limits.h>
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <sys/time.h>
 
-# define ERNO_ARGS
+# define ERNO_FORMAT 0
+# define ERNO_ARGS 1
 
 # define MSG_FORK 0
 # define MSG_EAT 1
@@ -50,6 +52,9 @@ long	get_current_time(void);
 void	print_action_time(int id, int action);
 char	*format_msg(long lapsed_time, int id, int action);
 
+//parsing arguments
+int		args_manager(int ac, char **av, long *philo_nbr, t_info *info);
+
 //tools
 //	strings
 int		am_strlen(char *str);
@@ -58,5 +63,8 @@ char	*am_strjoin(char *prefix, char *sufix);
 //	nbrs
 char	*am_ltoa(long nbr);
 long	am_atol(char *str);
+
+//error
+void	error_manager(int erno);
 
 #endif

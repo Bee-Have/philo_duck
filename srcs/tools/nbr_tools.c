@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 02:00:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 04:56:33 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/17 18:58:08 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,19 @@ long	am_atol(char *str)
 	int	i;
 
 	i = 0;
+	if (am_strlen(str) > 10)
+		return (-1);
+	if (str[0] == '-')
+		i = 1;
 	res = 0;
 	while (str[i] != '\0')
 	{
+		if (str[i] < '0' || str[i] > '9')
+			return (-1);
 		res = (res * 10) + (str[i] - '0');
 		++i;
 	}
+	if (str[0] == '-')
+		res *= -1;
 	return (res);
 }

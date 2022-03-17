@@ -7,3 +7,17 @@
 3 = the time a philo will take to sleep
 4 = (this arg is optional) the number of time a philo must eat
 	(once all philo have eaten the given number of times, the simulation end)
+
+check args nbrs :
+	-if args < 4 = BAD
+	-if args > 5 = BAD
+
+check args args :
+	convert each arg :
+		- if one is NOT nbr = BAD
+		- if one is < 0 = BAD
+
+if anything bad :
+	return (exit_faillure)
+else
+	return (exit_success)
