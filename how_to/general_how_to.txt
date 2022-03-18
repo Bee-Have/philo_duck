@@ -35,5 +35,10 @@ for time, use tm_sec to get the time in seconds
 the parent of the threads needs to be alive until threads "finish"
 
 
-
 !!!!!! USLEEP !!!!!!!
+
+make functions for routine :
+	- eat
+	- sleep
+
+make prints in ms in all function for all required prints
