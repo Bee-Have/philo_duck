@@ -53,3 +53,12 @@ after starting mutex
 lock it every time someone access specific variable, unlock it at the end of function
 
 one mutex for fork
+
+array of forks
+each time philo enter:
+	if (even id)
+		-try to lock id philo 
+		-try to lock id philo + 1
+	if (odd id)
+		-try to lock id philo + 1
+		-try to lock id philo 

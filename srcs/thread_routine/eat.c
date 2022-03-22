@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 02:10:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/22 05:25:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,33 @@
 void	*eat_routine(void *var)
 {
 	t_philo	*philo;
-	long	time;
 
 	philo = (t_philo *)var;
-	time = get_current_time();
-	//check if last meal time is over time_die
-		//if it is, kill philo
-	print_action_time(philo->id, MSG_FORK);
-	print_action_time(philo->id, MSG_FORK);
-	//mutex buisness
-	print_action_time(philo->id, MSG_EAT);
-	//after mutex, check if the time does not exceed time_die
-		//if it does, kill philo
-	while (time < philo->info->time_eat)
+	if ((philo->id % 2) == 0)
 	{
-		usleep(1000);
-		//check if philo died
-		++time;
+		pthread_mutex_lock(&(philo->info->forks[philo->id]));
+		pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
 	}
+	else if ((philo->id % 2) == 1)
+	{
+		pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
+		pthread_mutex_lock(&(philo->info->forks[philo->id]));
+	}
+	print_action_time(philo->id, MSG_FORK);
+	print_action_time(philo->id, MSG_FORK);
+	print_action_time(philo->id, MSG_EAT);
+	wait_given_time(philo->info->time_eat);
 	philo->last_meal = get_current_time();
-	//call sleep function
+	if ((philo->id % 2) == 0)
+	{
+		pthread_mutex_unlock(&(philo->info->forks[philo->id]));
+		pthread_mutex_unlock(&(philo->info->forks[philo->id + 1]));
+	}
+	else if ((philo->id % 2) == 1)
+	{
+		pthread_mutex_unlock(&(philo->info->forks[philo->id + 1]));
+		pthread_mutex_unlock(&(philo->info->forks[philo->id]));
+	}
 	sleep_routine(philo);
 	return (NULL);
 }

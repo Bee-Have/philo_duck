@@ -6,13 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 23:31:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 01:03:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/22 05:39:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	wait_given_time(long given)
+void	wait_given_time(long given)
 {
 	long	time;
 
