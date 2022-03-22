@@ -15,6 +15,7 @@ INCLUDES = -I$(INC_DIR)
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
 SRCS = main.c \
+	eat.c sleep.c \
 	init_struct.c \
 	args_manager.c \
 	time.c print_action_time.c \

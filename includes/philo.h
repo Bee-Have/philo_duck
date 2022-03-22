@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/18 14:34:53 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/22 02:31:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,25 @@
 
 typedef struct s_info
 {
-	long	time_die;
-	long	time_eat;
-	long	time_sleep;
-	long	must_eat;
+	pthread_mutex_t	forks;
+	long			time_die;
+	long			time_eat;
+	long			time_sleep;
+	long			must_eat;
+	long			nbrp;
+	int				dead;
 }				t_info;
 
 typedef struct s_philo
 {
 	int		id;
+	int		ate;
 	long	last_meal;
-	t_info	info;
+	t_info	*info;
 }				t_philo;
 
 //struct
-t_philo	*init_philo(long philo_nbr, t_info info, pthread_t **tid);
+t_philo	*init_philo(t_info *info, pthread_t **tid);
 
 //time
 long	get_current_time(void);
@@ -58,7 +62,11 @@ void	print_action_time(int id, int action);
 char	*format_msg(long lapsed_time, int id, int action);
 
 //parsing arguments
-int		args_manager(int ac, char **av, long *philo_nbr, t_info *info);
+int		args_manager(int ac, char **av, t_info *info);
+
+//routine
+void	*eat_routine(void *var);
+void	sleep_routine(t_philo *philo);
 
 //tools
 //	strings

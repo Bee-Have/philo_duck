@@ -42,3 +42,14 @@ make functions for routine :
 	- sleep
 
 make prints in ms in all function for all required prints
+
+
+!!!!!!!!!!!!!!!!!!!!!!! MUTEX !!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+start mutex in main
+destroy mutex at the end of main
+
+after starting mutex
+lock it every time someone access specific variable, unlock it at the end of function
+
+one mutex for fork

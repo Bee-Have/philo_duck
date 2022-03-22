@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   wait.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 01:57:22 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/21 23:18:51 by amarini-         ###   ########.fr       */
+/*   Created: 2022/03/21 23:31:35 by amarini-          #+#    #+#             */
+/*   Updated: 2022/03/22 01:03:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-long	get_current_time(void)
+int	wait_given_time(long given)
 {
-	struct timeval	time;
-	long			res;
-	
-	gettimeofday(&time, NULL);
-	res = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	return (res);
+	long	time;
+
+	time = 0;
+	while (time < given)
+	{
+		usleep(1000);
+		++time;
+	}
 }
