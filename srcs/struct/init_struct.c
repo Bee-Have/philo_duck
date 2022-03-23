@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:01:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 05:27:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:40:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 t_philo	*init_philo(t_info *info, pthread_t **tid)
 {
-	t_philo		*philo;
+	t_philo			*philo;
+	pthread_mutex_t	*forks;
 	int			i;
 
 	i = 0;
@@ -27,6 +28,14 @@ t_philo	*init_philo(t_info *info, pthread_t **tid)
 		free(tid);
 		return (NULL);
 	}
+	forks = (pthread_mutex_t *)malloc(info->nbrp * sizeof(pthread_mutex_t));
+	if (!forks)
+	{
+		free(tid);
+		free(philo);
+		return (NULL);
+	}
+	info->forks = forks;
 	while (i < info->nbrp)
 	{
 		pthread_mutex_init(&(info->forks[i]), NULL);

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 05:44:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:46:19 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < info.nbrp + 1)
 	{
+		pthread_join(tid[i], NULL);
 		if (i < info.nbrp)
 			pthread_mutex_destroy(&info.forks[i]);
-		pthread_join(tid[i], NULL);
 		++i;
 	}
 	free(tid);
 	free(philo);
+	free(info.forks);
 	return (EXIT_SUCCESS);
 }

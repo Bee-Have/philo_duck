@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 05:25:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:47:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,17 @@ void	*eat_routine(void *var)
 	if ((philo->id % 2) == 0)
 	{
 		pthread_mutex_lock(&(philo->info->forks[philo->id]));
-		pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
+		if (philo->id == philo->info->nbrp - 1)
+			pthread_mutex_lock(&(philo->info->forks[0]));
+		else
+			pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
 	}
 	else if ((philo->id % 2) == 1)
 	{
-		pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
+		if (philo->id == philo->info->nbrp - 1)
+			pthread_mutex_lock(&(philo->info->forks[0]));
+		else
+			pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
 		pthread_mutex_lock(&(philo->info->forks[philo->id]));
 	}
 	print_action_time(philo->id, MSG_FORK);
@@ -35,11 +41,17 @@ void	*eat_routine(void *var)
 	if ((philo->id % 2) == 0)
 	{
 		pthread_mutex_unlock(&(philo->info->forks[philo->id]));
-		pthread_mutex_unlock(&(philo->info->forks[philo->id + 1]));
+		if (philo->id == philo->info->nbrp - 1)
+			pthread_mutex_unlock(&(philo->info->forks[0]));
+		else
+			pthread_mutex_unlock(&(philo->info->forks[philo->id + 1]));
 	}
 	else if ((philo->id % 2) == 1)
 	{
-		pthread_mutex_unlock(&(philo->info->forks[philo->id + 1]));
+		if (philo->id == philo->info->nbrp - 1)
+			pthread_mutex_unlock(&(philo->info->forks[0]));
+		else
+			pthread_mutex_unlock(&(philo->info->forks[philo->id + 1]));
 		pthread_mutex_unlock(&(philo->info->forks[philo->id]));
 	}
 	sleep_routine(philo);
