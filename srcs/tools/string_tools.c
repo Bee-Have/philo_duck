@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 01:44:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 02:49:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:07:16 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*am_strjoin(char *prefix, char *sufix)
 	while (i < len)
 	{
 		if (prefix[i] == '\0')
-			break;
+			break ;
 		res[i] = prefix[i];
 		++i;
 	}

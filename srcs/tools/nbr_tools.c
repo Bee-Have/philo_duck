@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 02:00:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 18:58:08 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:06:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*am_ltoa(long nbr)
 long	am_atol(char *str)
 {
 	long	res;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (am_strlen(str) > 10)

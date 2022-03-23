@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 05:40:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:02:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,11 @@ int		check_all_alive(t_info *all_info, t_philo *philo);
 int		check_all_ate(t_info *all_info, t_philo *philo);
 //philos
 void	wait_given_time(long given);
+
 void	*eat_routine(void *var);
+void	lock_fork_mutex(t_philo *philo);
+void	unlock_fork_mutex(t_philo *philo);
+
 void	sleep_routine(t_philo *philo);
 
 //tools

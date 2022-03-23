@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 05:08:45 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 02:07:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:04:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ int	args_manager(int ac, char **av, t_info *info)
 		return (EXIT_FAILURE);
 	}
 	info->dead = 0;
-
 	return (EXIT_SUCCESS);
 }

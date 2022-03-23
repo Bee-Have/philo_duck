@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/22 05:35:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:04:48 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_all_alive(t_info *all_info, t_philo *philo)
 {
 	long	elapsed;
 	int		i;
-	
+
 	i = 0;
 	elapsed = 0;
 	while (i < all_info->nbrp)

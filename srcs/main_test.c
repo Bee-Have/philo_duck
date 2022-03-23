@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:59:31 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/17 18:11:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:09:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // {
 // 	struct timeval	time;
 // 	long			res;
-	
+// 	
 // 	gettimeofday(&time, NULL);
 // 	res = (time.tv_sec * 1000) + (time.tv_usec / 1000);
 // 	return (res);
@@ -37,12 +37,13 @@ int	main(void)
 	pthread_t	tid;
 	int			nbr_philo;
 	int			i;
+	int			tmp;
 
 	nbr_philo = 2;
 	i = 0;
 	while (i < nbr_philo)
 	{
-		int	tmp = i;
+		tmp = i;
 		pthread_create(&tid, NULL, my_thread, &tmp);
 		++i;
 	}
