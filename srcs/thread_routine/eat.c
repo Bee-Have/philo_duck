@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 17:03:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:55:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	*eat_routine(void *var)
 	t_philo	*philo;
 
 	philo = (t_philo *)var;
+	if (philo->info->dead == 1)
+		return (NULL);
 	lock_fork_mutex(philo);
 	print_action_time(philo->id, MSG_FORK);
 	print_action_time(philo->id, MSG_FORK);
 	print_action_time(philo->id, MSG_EAT);
-	wait_given_time(philo->info->time_eat);
+	if (wait_time(philo->info->time_eat, &philo->info->dead) == EXIT_FAILURE)
+		return (NULL);
 	philo->last_meal = get_current_time();
 	unlock_fork_mutex(philo);
 	sleep_routine(philo);

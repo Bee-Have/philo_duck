@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 17:14:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 17:55:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	check_all_alive(t_info *all_info, t_philo *philo)
 		{
 			print_action_time(philo[i].id, MSG_DIED);
 			all_info->dead = 1;
-			printf("\n\n_____PHILO [%d] HAS DIED TODAY_____\n\n", i);
 			return (EXIT_FAILURE);
 		}
 		++i;
