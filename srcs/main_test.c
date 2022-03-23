@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:59:31 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 17:09:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 19:58:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*my_thread(void *test)
 	int	*tmp;
 
 	tmp = (int *)test;
-	print_action_time(*tmp, MSG_SLEEP);
+	print_action(*tmp, MSG_SLEEP);
 	printf("Hello from thread :D\n");
 	return (NULL);
 }

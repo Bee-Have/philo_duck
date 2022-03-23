@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 17:52:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 19:58:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_philo	*init_philo(t_info *info, pthread_t **tid);
 long	get_current_time(void);
 
 //print
-void	print_action_time(int id, int action);
+int		print_action(int dead, int id, int action);
 char	*format_msg(long lapsed_time, int id, int action);
 
 //parsing arguments

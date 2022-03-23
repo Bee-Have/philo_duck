@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:15 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 17:55:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/23 20:44:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	sleep_routine(t_philo *philo)
 {
+	printf("id-[%d] sleep dead=[%d]\n", philo->id, philo->info->dead);
 	if (philo->info->dead == 1)
 		return ;
-	print_action_time(philo->id, MSG_SLEEP);
+	if (print_action(philo->info->dead, philo->id, MSG_SLEEP) == EXIT_FAILURE)
+		return ;
 	if (wait_time(philo->info->time_sleep, &philo->info->dead) == EXIT_FAILURE)
 		return ;
-	print_action_time(philo->id, MSG_THINK);
+	if (print_action(philo->info->dead, philo->id, MSG_THINK) == EXIT_FAILURE)
+		return ;
 	eat_routine((void *)philo);
 }
