@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:01:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 20:53:47 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:27:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ t_philo	*init_philo(t_info *info, pthread_t **tid)
 	{
 		pthread_mutex_init(&(info->forks[i]), NULL);
 		philo[i].id = i;
+		philo[i].ate = 0;
+		philo[i].last_meal = 0;
 		philo[i].info = info;
-		philo[i].last_meal = get_current_time();
 		++i;
 	}
 	return (philo);

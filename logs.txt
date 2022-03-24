@@ -1,12 +1,7 @@
-time-[0] id-[4] has taken a fork
-time-[0] id-[4] has taken a fork
-time-[0] id-[4] is eating
-time-[6] id-[1] has taken a fork
-time-[6] id-[1] has taken a fork
-time-[6] id-[1] is eating
-time-[99] id-[5] died
-id-[3] eat dead=[0]
-id-[4] eat dead=[0]
-id-[2] eat dead=[0]
-id-[0] eat dead=[0]
-id-[1] eat dead=[0]
+time-[0] id-[1] has taken a fork
+time-[0] id-[1] has taken a fork
+time-[25] id-[1] is eating
+time-[25] id-[4] has taken a fork
+time-[26] id-[4] has taken a fork
+time-[26] id-[4] is eating
+time-[42] id-[2] died
