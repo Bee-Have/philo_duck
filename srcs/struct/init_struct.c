@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:01:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/24 19:09:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:20:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_philo	*init_philo(t_info *info, pthread_t **tid)
 	}
 	while (i < info->nbrp)
 	{
+		pthread_mutex_init(&(philo[i].meal), NULL);
 		philo[i].id = i;
 		philo[i].ate = 0;
 		philo[i].last_meal = 0;

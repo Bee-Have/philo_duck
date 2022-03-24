@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/24 18:57:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/24 19:22:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ int	check_all_alive(t_info *all_info, t_philo *philo)
 	elapsed = 0;
 	while (i < all_info->nbrp)
 	{
+		pthread_mutex_lock(&(philo[i].meal));
 		elapsed = get_current_time() - philo[i].last_meal;
+		pthread_mutex_unlock(&(philo[i].meal));
 		if (elapsed >= all_info->time_die)
 		{
 			print_action(all_info, philo[i].id, MSG_DIED);
