@@ -62,3 +62,16 @@ each time philo enter:
 	if (odd id)
 		-try to lock id philo + 1
 		-try to lock id philo 
+
+
+ok so :
+datarace can happen on read (i guess ?)
+
+mutex lock for death (all threads are trying to access "death", need to mutex it)
+
+add mutex for start_time ?
+add mutex for last meal ?
+change mutex lock position for death (all threads must lock death upon reading)
+add check every time a mutex is locked and/or unlocked
+
+

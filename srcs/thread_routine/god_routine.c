@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 20:50:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/24 18:57:51 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	check_all_alive(t_info *all_info, t_philo *philo)
 		elapsed = get_current_time() - philo[i].last_meal;
 		if (elapsed >= all_info->time_die)
 		{
+			print_action(all_info, philo[i].id, MSG_DIED);
 			all_info->dead = 1;
-			print_action(0, philo[i].id, MSG_DIED);
 			return (EXIT_FAILURE);
 		}
 		++i;
