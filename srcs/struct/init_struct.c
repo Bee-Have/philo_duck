@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:01:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/25 14:50:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:21:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int	init_mutexs(t_info *info)
 		++i;
 	}
 	pthread_mutex_init(&info->time, NULL);
+	pthread_mutex_init(&info->death, NULL);
 	return (EXIT_SUCCESS);
 }

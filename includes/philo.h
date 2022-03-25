@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/24 19:17:57 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:25:04 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_info
 {
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	time;
+	pthread_mutex_t	death;
 	long			time_die;
 	long			time_eat;
 	long			time_sleep;
@@ -55,7 +56,10 @@ typedef struct s_philo
 
 //init
 t_philo	*init_philo(t_info *info, pthread_t **tid);
+
+//mutex
 int		init_mutexs(t_info *info);
+void	destroy_mutexs(t_info *info, t_philo *philo);
 
 //time
 long	get_current_time(void);
@@ -73,7 +77,7 @@ void	*god_routine(void *humans);
 int		check_all_alive(t_info *all_info, t_philo *philo);
 int		check_all_ate(t_info *all_info, t_philo *philo);
 //philos
-int	wait_time(long given, int *dead);
+int		wait_time(long given, t_info *info);
 
 void	*eat_routine(void *var);
 void	lock_fork_mutex(t_philo *philo);

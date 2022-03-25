@@ -48,8 +48,10 @@ int	print_action(t_info *info, int id, int action)
 	long		current_time;
 	char		*msg;
 
+	pthread_mutex_lock(&info->death);
 	if (info->dead == 1)
 		return (EXIT_FAILURE);
+	pthread_mutex_unlock(&info->death);
 	current_time = get_current_time();
 	pthread_mutex_lock(&info->time);
 	if (start_time == 0)

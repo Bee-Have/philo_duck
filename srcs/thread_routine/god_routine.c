@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/24 19:22:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:34:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int	check_all_alive(t_info *all_info, t_philo *philo)
 		if (elapsed >= all_info->time_die)
 		{
 			print_action(all_info, philo[i].id, MSG_DIED);
+			// pthread_mutex_lock(&philo->info->death);
 			all_info->dead = 1;
+			// pthread_mutex_lock(&philo->info->death);
 			return (EXIT_FAILURE);
 		}
 		++i;

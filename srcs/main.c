@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/24 19:19:05 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/25 15:25:06 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,26 @@ int	main(int ac, char **av)
 	while (i < info.nbrp + 1)
 	{
 		pthread_join(tid[i], NULL);
-		if (i < info.nbrp)
-		{
-			pthread_mutex_destroy(&info.forks[i]);
-			pthread_mutex_destroy(&philo[i].meal);
-		}
 		++i;
 	}
-	pthread_mutex_destroy(&info.time);
+	destroy_mutexs(&info, philo);
 	free(tid);
 	free(philo);
 	free(info.forks);
 	return (EXIT_SUCCESS);
+}
+
+void	destroy_mutexs(t_info *info, t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < info->nbrp)
+	{
+		pthread_mutex_destroy(&(info->forks[i]));
+		pthread_mutex_destroy(&(philo[i].meal));
+		++i;
+	}
+	pthread_mutex_destroy(&info->time);
+	pthread_mutex_destroy(&info->death);
 }
