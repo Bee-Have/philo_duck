@@ -67,6 +67,11 @@ int	print_action(t_info *info, int id, int action)
 	current_time = current_time - start_time;
 	pthread_mutex_unlock(&info->time);
 	msg = format_msg(current_time, id, action);
+	if (philo_check_death(info) == EXIT_FAILURE)
+	{
+		free(msg);
+		return (EXIT_FAILURE);
+	}
 	write(STDOUT_FILENO, msg, am_strlen(msg));
 	free(msg);
 	return (EXIT_SUCCESS);

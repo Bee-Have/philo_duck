@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:59:44 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 18:00:47 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,18 @@ void	finish_simulation(t_info *info, t_philo *philo, pthread_t *tid)
 	int	i;
 
 	i = 0;
+	while (i < info->nbrp + 1)
+	{
+		pthread_join(tid[i], NULL);
+		++i;
+	}
+	i = 0;
 	while (i < info->nbrp)
 	{
 		pthread_mutex_destroy(&(info->forks[i]));
 		pthread_mutex_destroy(&(philo[i].meal));
-		pthread_join(tid[i], NULL);
 		++i;
 	}
-	pthread_join(tid[i], NULL);
 	pthread_mutex_destroy(&info->time);
 	pthread_mutex_destroy(&info->death);
 	free(info->forks);
