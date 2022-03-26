@@ -1,12 +1,7 @@
 NAME = philo
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g3
-
-DEBUG =
-ifdef DEBUG
-CFLAGS += -fsanitize=address
-endif
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS_DIR = $(shell find srcs -type d)
 
