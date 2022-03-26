@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:46:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:59:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	finish_simulation(t_info *info, t_philo *philo, pthread_t *tid)
 		++i;
 	}
 	pthread_join(tid[i], NULL);
+	pthread_mutex_destroy(&info->time);
 	pthread_mutex_destroy(&info->death);
 	free(info->forks);
 	free(tid);

@@ -1,68 +1,87 @@
-==1130056== Memcheck, a memory error detector
-==1130056== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1130056== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==1130056== Command: ./philo 2 300 200 200
-==1130056== 
-time-[1649267441753] id-[2] has taken a fork
-time-[1649267441967] id-[1] died
-time-[1649267441968] id-[2] has taken a fork
-time-[1649267441968] id-[2] is eating
-==1130056== Invalid read of size 4
-==1130056==    at 0x486E875: pthread_mutex_destroy (pthread_mutex_destroy.c:32)
-==1130056==    by 0x1094C2: finish_simulation (main.c:48)
-==1130056==    by 0x109438: main (main.c:36)
-==1130056==  Address 0x4a7b1c0 is 16 bytes after a block of size 80 alloc'd
-==1130056==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1130056==    by 0x10986D: init_mutexs (init_struct.c:49)
-==1130056==    by 0x1097CB: init_philo (init_struct.c:30)
-==1130056==    by 0x10931E: main (main.c:25)
-==1130056== 
-==1130056== Invalid read of size 4
-==1130056==    at 0x486E87C: pthread_mutex_destroy (pthread_mutex_destroy.c:34)
-==1130056==    by 0x1094C2: finish_simulation (main.c:48)
-==1130056==    by 0x109438: main (main.c:36)
-==1130056==  Address 0x4a7b1bc is 12 bytes after a block of size 80 alloc'd
-==1130056==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1130056==    by 0x10986D: init_mutexs (init_struct.c:49)
-==1130056==    by 0x1097CB: init_philo (init_struct.c:30)
-==1130056==    by 0x10931E: main (main.c:25)
-==1130056== 
-==1130056== Invalid write of size 4
-==1130056==    at 0x486E888: pthread_mutex_destroy (pthread_mutex_destroy.c:40)
-==1130056==    by 0x1094C2: finish_simulation (main.c:48)
-==1130056==    by 0x109438: main (main.c:36)
-==1130056==  Address 0x4a7b1c0 is 16 bytes after a block of size 80 alloc'd
-==1130056==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1130056==    by 0x10986D: init_mutexs (init_struct.c:49)
-==1130056==    by 0x1097CB: init_philo (init_struct.c:30)
-==1130056==    by 0x10931E: main (main.c:25)
-==1130056== 
-==1130056== Invalid read of size 4
-==1130056==    at 0x486E875: pthread_mutex_destroy (pthread_mutex_destroy.c:32)
-==1130056==    by 0x1094E1: finish_simulation (main.c:49)
-==1130056==    by 0x109438: main (main.c:36)
-==1130056==  Address 0x4a7b140 is 32 bytes before a block of size 80 in arena "client"
-==1130056== 
-==1130056== Invalid write of size 4
-==1130056==    at 0x486E888: pthread_mutex_destroy (pthread_mutex_destroy.c:40)
-==1130056==    by 0x1094E1: finish_simulation (main.c:49)
-==1130056==    by 0x109438: main (main.c:36)
-==1130056==  Address 0x4a7b140 is 32 bytes before a block of size 80 in arena "client"
-==1130056== 
-==1130056== Invalid read of size 8
-==1130056==    at 0x10950C: finish_simulation (main.c:52)
-==1130056==    by 0x109438: main (main.c:36)
-==1130056==  Address 0x4a7b058 is 0 bytes after a block of size 24 alloc'd
-==1130056==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1130056==    by 0x109763: init_philo (init_struct.c:21)
-==1130056==    by 0x10931E: main (main.c:25)
-==1130056== 
-==1130056== 
-==1130056== HEAP SUMMARY:
-==1130056==     in use at exit: 0 bytes in 0 blocks
-==1130056==   total heap usage: 30 allocs, 30 frees, 1,569 bytes allocated
-==1130056== 
-==1130056== All heap blocks were freed -- no leaks are possible
-==1130056== 
-==1130056== For lists of detected and suppressed errors, rerun with: -s
-==1130056== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 0 from 0)
+time-[0] id-[1] has taken a fork
+time-[0] id-[1] has taken a fork
+time-[0] id-[1] is eating
+time-[218] id-[1] is sleeping
+time-[218] id-[2] has taken a fork
+time-[218] id-[2] has taken a fork
+time-[218] id-[2] is eating
+time-[430] id-[1] is thinking
+time-[430] id-[2] is sleeping
+time-[430] id-[1] has taken a fork
+time-[431] id-[1] has taken a fork
+time-[431] id-[1] is eating
+time-[643] id-[2] is thinking
+time-[643] id-[1] is sleeping
+time-[643] id-[2] has taken a fork
+time-[643] id-[2] has taken a fork
+time-[643] id-[2] is eating
+time-[855] id-[2] is sleeping
+time-[855] id-[1] is thinking
+time-[855] id-[1] has taken a fork
+time-[855] id-[1] has taken a fork
+time-[855] id-[1] is eating
+time-[1067] id-[1] is sleeping
+time-[1067] id-[2] is thinking
+time-[1067] id-[2] has taken a fork
+time-[1067] id-[2] has taken a fork
+time-[1067] id-[2] is eating
+time-[1279] id-[1] is thinking
+time-[1279] id-[2] is sleeping
+time-[1279] id-[1] has taken a fork
+time-[1279] id-[1] has taken a fork
+time-[1279] id-[1] is eating
+time-[1492] id-[2] is thinking
+time-[1492] id-[1] is sleeping
+time-[1492] id-[2] has taken a fork
+time-[1492] id-[2] has taken a fork
+time-[1492] id-[2] is eating
+time-[1704] id-[1] is thinking
+time-[1704] id-[2] is sleeping
+time-[1704] id-[1] has taken a fork
+time-[1704] id-[1] has taken a fork
+time-[1704] id-[1] is eating
+time-[1916] id-[1] is sleeping
+time-[1916] id-[2] is thinking
+time-[1916] id-[2] has taken a fork
+time-[1916] id-[2] has taken a fork
+time-[1916] id-[2] is eating
+time-[2128] id-[2] is sleeping
+time-[2128] id-[1] is thinking
+time-[2128] id-[1] has taken a fork
+time-[2129] id-[1] has taken a fork
+time-[2129] id-[1] is eating
+time-[2340] id-[2] is thinking
+time-[2341] id-[1] is sleeping
+time-[2341] id-[2] has taken a fork
+time-[2341] id-[2] has taken a fork
+time-[2341] id-[2] is eating
+time-[2553] id-[1] is thinking
+time-[2553] id-[2] is sleeping
+time-[2553] id-[1] has taken a fork
+time-[2555] id-[1] has taken a fork
+time-[2555] id-[1] is eating
+time-[2767] id-[2] is thinking
+time-[2767] id-[1] is sleeping
+time-[2767] id-[2] has taken a fork
+time-[2768] id-[2] has taken a fork
+time-[2768] id-[2] is eating
+time-[2979] id-[1] is thinking
+time-[2980] id-[2] is sleeping
+time-[2980] id-[1] has taken a fork
+time-[2980] id-[1] has taken a fork
+time-[2980] id-[1] is eating
+time-[3192] id-[1] is sleeping
+time-[3192] id-[2] is thinking
+time-[3192] id-[2] has taken a fork
+time-[3192] id-[2] has taken a fork
+time-[3192] id-[2] is eating
+time-[3404] id-[1] is thinking
+time-[3404] id-[2] is sleeping
+time-[3404] id-[1] has taken a fork
+time-[3404] id-[1] has taken a fork
+time-[3404] id-[1] is eating
+time-[3616] id-[1] is sleeping
+time-[3616] id-[2] is thinking
+time-[3616] id-[2] has taken a fork
+time-[3616] id-[2] has taken a fork
+time-[3616] id-[2] is eating

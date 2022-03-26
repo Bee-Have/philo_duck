@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:39:30 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:55:16 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,7 @@ void	*eat_routine(void *var)
 	if (philo_check_death(philo->info) == EXIT_FAILURE)
 		return (NULL);
 	lock_fork_mutex(philo);
-	if (print_action(philo->info, philo->id, MSG_FORK) == EXIT_FAILURE)
-	{
-		unlock_fork_mutex(philo);
-		return (NULL);
-	}
-	if (print_action(philo->info, philo->id, MSG_FORK) == EXIT_FAILURE)
-	{
-		unlock_fork_mutex(philo);
-		return (NULL);
-	}
-	if (print_action(philo->info, philo->id, MSG_EAT) == EXIT_FAILURE)
+	if (print_meal_actions(philo) == EXIT_FAILURE)
 	{
 		unlock_fork_mutex(philo);
 		return (NULL);
@@ -48,6 +38,17 @@ void	*eat_routine(void *var)
 		return (NULL);
 	sleep_routine(philo);
 	return (NULL);
+}
+
+int	print_meal_actions(t_philo *philo)
+{
+	if (print_action(philo->info, philo->id, MSG_FORK) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (print_action(philo->info, philo->id, MSG_FORK) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	if (print_action(philo->info, philo->id, MSG_EAT) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 void	lock_fork_mutex(t_philo *philo)

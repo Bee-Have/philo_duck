@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:39:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:58:53 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 typedef struct s_info
 {
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	time;
 	pthread_mutex_t	death;
-	int				start_time;
 	long			time_die;
 	long			time_eat;
 	long			time_sleep;
@@ -83,6 +83,7 @@ int		philo_check_death(t_info *info);
 int		wait_time(long given, t_info *info);
 //eat
 void	*eat_routine(void *var);
+int		print_meal_actions(t_philo *philo);
 void	lock_fork_mutex(t_philo *philo);
 void	unlock_fork_mutex(t_philo *philo);
 //sleep / think

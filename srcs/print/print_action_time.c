@@ -44,13 +44,18 @@ char	*format_msg(long lapsed_time, int id, int action)
 // make it thread safe
 int	print_action(t_info *info, int id, int action)
 {
+	static long	start_time = 0;
 	long		current_time;
 	char		*msg;
 
 	if (philo_check_death(info) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	current_time = get_current_time();
-	current_time = current_time - info->start_time;
+	pthread_mutex_lock(&info->time);
+	if (start_time == 0)
+		start_time = current_time;
+	current_time = current_time - start_time;
+	pthread_mutex_unlock(&info->time);
 	msg = format_msg(current_time, id, action);
 	write(STDOUT_FILENO, msg, am_strlen(msg));
 	free(msg);
