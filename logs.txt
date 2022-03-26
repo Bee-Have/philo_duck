@@ -1,77 +1,82 @@
 time-[0] id-[1] has taken a fork
 time-[0] id-[1] has taken a fork
-time-[0] id-[1] is eating
-time-[200] id-[1] is sleeping
-time-[200] id-[2] has taken a fork
-time-[200] id-[2] has taken a fork
-time-[200] id-[2] is eating
-time-[400] id-[1] is thinking
-time-[400] id-[2] is sleeping
-time-[400] id-[1] has taken a fork
-time-[400] id-[1] has taken a fork
-time-[400] id-[1] is eating
-time-[600] id-[1] is sleeping
-time-[600] id-[2] is thinking
-time-[600] id-[2] has taken a fork
-time-[600] id-[2] has taken a fork
-time-[600] id-[2] is eating
-time-[800] id-[1] is thinking
-time-[800] id-[2] is sleeping
-time-[800] id-[1] has taken a fork
-time-[800] id-[1] has taken a fork
-time-[800] id-[1] is eating
-time-[1000] id-[2] is thinking
-time-[1000] id-[1] is sleeping
-time-[1000] id-[2] has taken a fork
-time-[1000] id-[2] has taken a fork
-time-[1000] id-[2] is eating
-time-[1200] id-[1] is thinking
-time-[1200] id-[2] is sleeping
-time-[1200] id-[1] has taken a fork
-time-[1200] id-[1] has taken a fork
-time-[1200] id-[1] is eating
-time-[1400] id-[2] is thinking
-time-[1400] id-[2] has taken a fork
-time-[1400] id-[1] is sleeping
-time-[1401] id-[2] has taken a fork
-time-[1401] id-[2] is eating
-time-[1601] id-[2] is sleeping
-time-[1602] id-[1] is thinking
-time-[1602] id-[1] has taken a fork
-time-[1602] id-[1] has taken a fork
-time-[1602] id-[1] is eating
-time-[1802] id-[2] is thinking
-time-[1802] id-[1] is sleeping
-time-[1802] id-[2] has taken a fork
-time-[1802] id-[2] has taken a fork
+time-[1] id-[1] is eating
+time-[201] id-[1] is sleeping
+time-[201] id-[2] has taken a fork
+time-[201] id-[2] has taken a fork
+time-[201] id-[2] is eating
+time-[401] id-[1] is thinking
+time-[401] id-[2] is sleeping
+time-[401] id-[1] has taken a fork
+time-[401] id-[1] has taken a fork
+time-[401] id-[1] is eating
+time-[601] id-[2] is thinking
+time-[601] id-[1] is sleeping
+time-[601] id-[2] has taken a fork
+time-[601] id-[2] has taken a fork
+time-[601] id-[2] is eating
+time-[801] id-[2] is sleeping
+time-[801] id-[1] is thinking
+time-[801] id-[1] has taken a fork
+time-[801] id-[1] has taken a fork
+time-[801] id-[1] is eating
+time-[1002] id-[2] is thinking
+time-[1002] id-[2] has taken a fork
+time-[1002] id-[2] has taken a fork
+time-[1002] id-[2] is eating
+time-[1002] id-[1] is sleeping
+time-[1202] id-[2] is sleeping
+time-[1203] id-[1] is thinking
+time-[1203] id-[1] has taken a fork
+time-[1203] id-[1] has taken a fork
+time-[1203] id-[1] is eating
+time-[1402] id-[2] is thinking
+time-[1403] id-[1] is sleeping
+time-[1403] id-[2] has taken a fork
+time-[1403] id-[2] has taken a fork
+time-[1403] id-[2] is eating
+time-[1603] id-[1] is thinking
+time-[1603] id-[2] is sleeping
+time-[1603] id-[1] has taken a fork
+time-[1603] id-[1] has taken a fork
+time-[1603] id-[1] is eating
+time-[1803] id-[1] is sleeping
+time-[1803] id-[2] is thinking
+time-[1803] id-[2] has taken a fork
+time-[1803] id-[2] has taken a fork
 time-[1803] id-[2] is eating
-time-[2002] id-[1] is thinking
 time-[2003] id-[2] is sleeping
+time-[2003] id-[1] is thinking
 time-[2003] id-[1] has taken a fork
 time-[2003] id-[1] has taken a fork
 time-[2003] id-[1] is eating
-time-[2203] id-[2] is thinking
 time-[2203] id-[1] is sleeping
-time-[2203] id-[2] has taken a fork
-time-[2203] id-[2] has taken a fork
-time-[2203] id-[2] is eating
-time-[2403] id-[2] is sleeping
+time-[2204] id-[2] is thinking
+time-[2204] id-[2] has taken a fork
+time-[2204] id-[2] has taken a fork
+time-[2204] id-[2] is eating
 time-[2403] id-[1] is thinking
-time-[2403] id-[1] has taken a fork
-time-[2403] id-[1] has taken a fork
-time-[2403] id-[1] is eating
-time-[2603] id-[1] is sleeping
-time-[2603] id-[2] is thinking
-time-[2603] id-[2] has taken a fork
-time-[2603] id-[2] has taken a fork
-time-[2603] id-[2] is eating
-time-[2803] id-[1] is thinking
-time-[2803] id-[2] is sleeping
-time-[2803] id-[1] has taken a fork
-time-[2803] id-[1] has taken a fork
-time-[2803] id-[1] is eating
-time-[3003] id-[2] is thinking
-time-[3003] id-[1] is sleeping
-time-[3004] id-[2] has taken a fork
-time-[3004] id-[2] has taken a fork
-time-[3004] id-[2] is eating
+time-[2404] id-[2] is sleeping
+time-[2404] id-[1] has taken a fork
+time-[2404] id-[1] has taken a fork
+time-[2404] id-[1] is eating
+time-[2604] id-[1] is sleeping
+time-[2604] id-[2] is thinking
+time-[2604] id-[2] has taken a fork
+time-[2604] id-[2] has taken a fork
+time-[2604] id-[2] is eating
+time-[2804] id-[2] is sleeping
+time-[2804] id-[1] is thinking
+time-[2804] id-[1] has taken a fork
+time-[2804] id-[1] has taken a fork
+time-[2804] id-[1] is eating
+time-[3004] id-[2] is thinking
+time-[3005] id-[1] is sleeping
+time-[3005] id-[2] has taken a fork
+time-[3005] id-[2] has taken a fork
+time-[3005] id-[2] is eating
+time-[3205] id-[1] is thinking
+time-[3205] id-[2] is sleeping
+time-[3205] id-[1] has taken a fork
+time-[3205] id-[1] has taken a fork
+time-[3205] id-[1] is eating
