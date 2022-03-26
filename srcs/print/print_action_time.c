@@ -50,7 +50,10 @@ int	print_action(t_info *info, int id, int action)
 
 	pthread_mutex_lock(&info->death);
 	if (info->dead == 1)
+	{
+		pthread_mutex_unlock(&info->death);
 		return (EXIT_FAILURE);
+	}
 	pthread_mutex_unlock(&info->death);
 	current_time = get_current_time();
 	pthread_mutex_lock(&info->time);
