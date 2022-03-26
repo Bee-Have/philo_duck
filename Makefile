@@ -3,6 +3,11 @@ NAME = philo
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g3
 
+DEBUG =
+ifdef DEBUG
+CFLAGS += -fsanitize=address
+endif
+
 SRCS_DIR = $(shell find srcs -type d)
 
 OBJS_DIR = objs
@@ -15,9 +20,10 @@ INCLUDES = -I$(INC_DIR)
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
 SRCS = main.c \
-	god_routine.c \
-	eat.c sleep.c wait.c \
 	args_manager.c init_struct.c \
+	god_routine.c \
+	wait.c death.c \
+	eat.c sleep.c \
 	time.c print_action_time.c \
 	string_tools.c nbr_tools.c \
 	error_manager.c

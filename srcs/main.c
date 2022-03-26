@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/25 15:25:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:46:36 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,17 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	while (i < info.nbrp)
 	{
+		philo[i].id = i;
+		philo[i].last_meal = get_current_time();
 		pthread_create(&(tid[i]), NULL, eat_routine, &(philo[i]));
 		++i;
 	}
 	pthread_create(&(tid[i]), NULL, god_routine, philo);
-	i = 0;
-	while (i < info.nbrp + 1)
-	{
-		pthread_join(tid[i], NULL);
-		++i;
-	}
-	destroy_mutexs(&info, philo);
-	free(tid);
-	free(philo);
-	free(info.forks);
+	finish_simulation(&info, philo, tid);
 	return (EXIT_SUCCESS);
 }
 
-void	destroy_mutexs(t_info *info, t_philo *philo)
+void	finish_simulation(t_info *info, t_philo *philo, pthread_t *tid)
 {
 	int	i;
 
@@ -53,8 +46,12 @@ void	destroy_mutexs(t_info *info, t_philo *philo)
 	{
 		pthread_mutex_destroy(&(info->forks[i]));
 		pthread_mutex_destroy(&(philo[i].meal));
+		pthread_join(tid[i], NULL);
 		++i;
 	}
-	pthread_mutex_destroy(&info->time);
+	pthread_join(tid[i], NULL);
 	pthread_mutex_destroy(&info->death);
+	free(info->forks);
+	free(tid);
+	free(philo);
 }

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/25 15:25:04 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:39:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 typedef struct s_info
 {
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	time;
 	pthread_mutex_t	death;
+	int				start_time;
 	long			time_die;
 	long			time_eat;
 	long			time_sleep;
@@ -54,12 +54,16 @@ typedef struct s_philo
 	t_info			*info;
 }				t_philo;
 
-//init
-t_philo	*init_philo(t_info *info, pthread_t **tid);
+//parsing arguments
+int		args_manager(int ac, char **av, t_info *info);
 
-//mutex
-int		init_mutexs(t_info *info);
-void	destroy_mutexs(t_info *info, t_philo *philo);
+//?			managments
+//init / malloc
+int		init_info(int ac, char **av, t_info *info);
+t_philo	*init_philo(t_info *info, pthread_t **tid);
+int		init_mutexs(t_info *info, t_philo *philo);
+//destroy / free
+void	finish_simulation(t_info *info, t_philo *philo, pthread_t *tid);
 
 //time
 long	get_current_time(void);
@@ -68,33 +72,32 @@ long	get_current_time(void);
 int		print_action(t_info *info, int id, int action);
 char	*format_msg(long lapsed_time, int id, int action);
 
-//parsing arguments
-int		args_manager(int ac, char **av, t_info *info);
-
-//routine
+//?			routine
 //god
 void	*god_routine(void *humans);
-int		check_all_alive(t_info *all_info, t_philo *philo);
-int		check_all_ate(t_info *all_info, t_philo *philo);
-//philos
+int		god_check_vitals(t_info *all_info, t_philo *philo);
+int		god_check_meals(t_info *all_info, t_philo *philo);
+//?		philos
+//all philos
+int		philo_check_death(t_info *info);
 int		wait_time(long given, t_info *info);
-
+//eat
 void	*eat_routine(void *var);
 void	lock_fork_mutex(t_philo *philo);
 void	unlock_fork_mutex(t_philo *philo);
-
+//sleep / think
 void	sleep_routine(t_philo *philo);
 
-//tools
-//	strings
+//?			tools
+//strings
 int		am_strlen(char *str);
 char	*am_strdup(char *str);
 char	*am_strjoin(char *prefix, char *sufix);
-//	nbrs
+//nbrs
 char	*am_ltoa(long nbr);
 long	am_atol(char *str);
 
-//error
+//!error
 void	error_manager(int erno);
 
 #endif

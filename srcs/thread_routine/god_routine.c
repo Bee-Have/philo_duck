@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 12:41:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 14:35:16 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ void	*god_routine(void *humans)
 	all_info = philo[0].info;
 	while (1)
 	{
-		if (check_all_alive(all_info, philo) == EXIT_FAILURE
+		if (god_check_vitals(all_info, philo) == EXIT_FAILURE
 			|| (all_info->must_eat != -1
-				&& check_all_ate(all_info, philo) == EXIT_FAILURE))
+				&& god_check_meals(all_info, philo) == EXIT_FAILURE))
 			break ;
 	}
 	return (NULL);
 }
 
-int	check_all_alive(t_info *all_info, t_philo *philo)
+int	god_check_vitals(t_info *all_info, t_philo *philo)
 {
 	long	elapsed;
 	int		i;
@@ -57,7 +57,7 @@ int	check_all_alive(t_info *all_info, t_philo *philo)
 	return (EXIT_SUCCESS);
 }
 
-int	check_all_ate(t_info *all_info, t_philo *philo)
+int	god_check_meals(t_info *all_info, t_philo *philo)
 {
 	int	i;
 
