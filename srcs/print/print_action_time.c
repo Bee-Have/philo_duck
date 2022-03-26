@@ -12,6 +12,23 @@
 
 #include "philo.h"
 
+char	*get_msg(int action)
+{
+	char	*str;
+
+	if (action == MSG_FORK_ON)
+		str = am_strdup("] has taken a fork\n");
+	else if (action == MSG_EAT)
+		str = am_strdup("] is eating\n");
+	else if (action == MSG_SLEEP)
+		str = am_strdup("] is sleeping\n");
+	else if (action == MSG_THINK)
+		str = am_strdup("] is thinking\n");
+	else if (action == MSG_DIED)
+		str = am_strdup("] died\n");
+	return (str);
+}
+
 char	*format_msg(long lapsed_time, int id, int action)
 {
 	char	*str;
@@ -27,16 +44,9 @@ char	*format_msg(long lapsed_time, int id, int action)
 	str = am_strjoin(msg, tmp);
 	free(tmp);
 	free(msg);
-	if (action == MSG_FORK)
-		msg = am_strjoin(str, "] has taken a fork\n");
-	else if (action == MSG_EAT)
-		msg = am_strjoin(str, "] is eating\n");
-	else if (action == MSG_SLEEP)
-		msg = am_strjoin(str, "] is sleeping\n");
-	else if (action == MSG_THINK)
-		msg = am_strjoin(str, "] is thinking\n");
-	else if (action == MSG_DIED)
-		msg = am_strjoin(str, "] died\n");
+	tmp = get_msg(action);
+	msg = am_strjoin(str, tmp);
+	free(tmp);
 	free(str);
 	return (msg);
 }

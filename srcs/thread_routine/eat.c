@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:55:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:27:43 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	*eat_routine(void *var)
 
 int	print_meal_actions(t_philo *philo)
 {
-	if (print_action(philo->info, philo->id, MSG_FORK) == EXIT_FAILURE)
+	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (print_action(philo->info, philo->id, MSG_FORK) == EXIT_FAILURE)
+	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	if (print_action(philo->info, philo->id, MSG_EAT) == EXIT_FAILURE)
 		return (EXIT_FAILURE);

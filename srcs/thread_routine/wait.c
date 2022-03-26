@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 23:31:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:39:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:33:23 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 int	wait_time(long given, t_info *info)
 {
 	long	time;
+	long	test;
 
-	if (philo_check_death(info) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
+	test = get_current_time();
 	time = 0;
 	while (time < given)
 	{
 		if (philo_check_death(info) == EXIT_FAILURE)
 			return (EXIT_FAILURE);
+		if ((get_current_time() - test) >= given)
+			break ;
 		usleep(1000);
 		++time;
 	}
-	if (philo_check_death(info) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

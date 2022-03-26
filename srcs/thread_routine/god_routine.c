@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:35:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:16:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	*god_routine(void *humans)
 			|| (all_info->must_eat != -1
 				&& god_check_meals(all_info, philo) == EXIT_FAILURE))
 			break ;
+		usleep(1000);
 	}
 	return (NULL);
 }

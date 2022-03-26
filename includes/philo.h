@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 14:58:53 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/26 17:27:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define ERNO_FORMAT 0
 # define ERNO_ARGS 1
 
-# define MSG_FORK 0
+# define MSG_FORK_ON 0
 # define MSG_EAT 1
 # define MSG_SLEEP 2
 # define MSG_THINK 3
@@ -71,6 +71,7 @@ long	get_current_time(void);
 //print
 int		print_action(t_info *info, int id, int action);
 char	*format_msg(long lapsed_time, int id, int action);
+char	*get_msg(int action);
 
 //?			routine
 //god

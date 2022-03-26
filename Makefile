@@ -3,6 +3,11 @@ NAME = philo
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+DEBUG =
+ifdef DEBUG
+CFLAGS += -fsanitize=address -g3
+endif
+
 SRCS_DIR = $(shell find srcs -type d)
 
 OBJS_DIR = objs
