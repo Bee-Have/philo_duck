@@ -1,0 +1,7 @@
+behaves much like philo with threads
+
+basically, instead of threads, there will be forks
+
+these forks will use counting semaphores for the forks
+
+but what of the shared variables ?

@@ -9,7 +9,8 @@ ifdef DEBUG
 CFLAGS += -fsanitize=address -g3
 endif
 
-SRCS_DIR = $(shell find srcs -type d)
+SRCS_DIR = $(shell find philo -type d)
+SRCS_DIR_B = $(shell find philo -type d)
 
 OBJS_DIR = objs
 OBJS_DIR_B = objs_bonus
@@ -65,7 +66,7 @@ clean:
 	rm -rf $(OBJS_DIR_B)
 
 fclean: clean
-	rm -rf $(NAME)
-	rm -rf $(NAME_B)
+	rm $(NAME)
+	rm $(NAME_B)
 
 .PHONY : fclean clean re mandatory bonus all

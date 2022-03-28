@@ -1,0 +1,17 @@
+init semaphores with :
+	- init
+	- open
+(i don't know the difference between these two yet)
+open : either create of open semaphore (if semaphore exists)
+
+!!! each process must sem_open the semaphone to have access to it
+
+semaphore name must start with /
+
+sem_post : increment semaphore value
+sem_wait : decrement semaphore value
+	if the value is 0 : sem_wait will block (like mutex)
+
+sem_close : when a process is done with a semaphore, process calls this
+
+sem_unlink : when ALL processes are done with a semaphore, call this
