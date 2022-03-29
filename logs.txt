@@ -1,13 +1,1 @@
-time-[0] id-[2] has taken a fork
-time-[0] id-[2] has taken a fork
-time-[0] id-[2] is eating
-time-[200] id-[2] is sleeping
-time-[201] id-[1] has taken a fork
-time-[201] id-[1] has taken a fork
-time-[201] id-[1] is eating
-time-[401] id-[2] is thinking
-time-[401] id-[1] is sleeping
-time-[401] id-[3] has taken a fork
-time-[401] id-[3] has taken a fork
-time-[401] id-[3] is eating
-time-[410] id-[2] died
+ERROR : sem_open() Failed

@@ -1,0 +1,37 @@
+NAME = philo_bonus
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -g3
+
+SRCS_DIR = $(shell find srcs_bonus -type d)
+
+OBJS_DIR = objs_bonus
+INC_DIR = ./includes_bonus/
+
+LIBS = -lpthread -lrt
+INC = -I$(INC_DIR)
+
+vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
+
+SRCS = main_test_bonus.c
+
+OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LIBS)
+
+$(OBJS_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+re: fclean all
+
+clean:
+	rm -rf $(OBJS_DIR)
+
+fclean: clean
+	rm $(NAME)
+
+.PHONY: fclean clean re all

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:20:32 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/28 18:29:24 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/29 17:52:59 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 typedef struct	s_test
 {
-	int	test;
+	int	id;
 }				t_test;
 
 void	testing_sems(t_test *testing)
 {
 	sem_t	*sem_test;
 
-	sem_test = sem_open(SEM_NAME, O_CREAT, S_IROTH | S_IWOTH, 1);
+	sem_test = sem_open(SEM_NAME, O_CREAT, S_IROTH | S_IWOTH, 2);
 	if (sem_test == SEM_FAILED)
 	{
 		printf("ERROR : child sem_open() Failed\n");
@@ -34,12 +34,25 @@ void	testing_sems(t_test *testing)
 		printf("ERROR : child sem_wait() Failed\n");
 		exit(EXIT_FAILURE);
 	}
-	testing->test += 1;
+	printf("[%d] has taken a fork\n", testing->id);
+	if (sem_wait(sem_test) < 0)
+	{
+		printf("ERROR : child sem_wait() Failed\n");
+		exit(EXIT_FAILURE);
+	}
+	printf("[%d] has taken a fork\n", testing->id);
 	if (sem_post(sem_test) < 0)
 	{
 		printf("ERROR : child sem_post() Failed\n");
 		exit(EXIT_FAILURE);
 	}
+	printf("[%d] has freed a fork\n", testing->id);
+	if (sem_post(sem_test) < 0)
+	{
+		printf("ERROR : child sem_post() Failed\n");
+		exit(EXIT_FAILURE);
+	}
+	printf("[%d] has freed a fork\n", testing->id);
 }
 
 int	main(void)
@@ -57,9 +70,9 @@ int	main(void)
 		return (EXIT_FAILURE);
 	}
 	i = 0;
-	testing.test = 0;
 	while (i < 2)
 	{
+		testing.id = i;
 		pid[i] = fork();
 		if (pid[i] == 0)
 		{
@@ -71,9 +84,8 @@ int	main(void)
 	i = 0;
 	while (i < 2)
 	{
-		waitpid(pid[i], &ret, WEXITED);
+		waitpid(pid[i], &ret, WUNTRACED);
 		printf("ret_wait-[%d]\n", ret);
 	}
-	printf("test-[%d]\n", testing.test);
 	return (EXIT_SUCCESS);
 }
