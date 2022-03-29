@@ -1,1 +1,18 @@
-ERROR : sem_open() Failed
+ERROR : [No such file or directory] : sem_unlink() Failed
+SUCCESS : sem_open() worked
+SUCCESS : child sem_open() worked
+SUCCESS : child sem_wait() worked
+[0] has taken a fork
+SUCCESS : child sem_post() worked
+[0] has freed a fork
+ERROR : [No such file or directory] : sem_unlink() Failed
+SUCCESS : sem_open() worked
+SUCCESS : child sem_open() worked
+SUCCESS : child sem_wait() worked
+[1] has taken a fork
+SUCCESS : child sem_post() worked
+[1] has freed a fork
+ERROR : [No such file or directory] : sem_unlink() Failed
+SUCCESS : sem_open() worked
+ret_wait-[0]
+ret_wait-[0]

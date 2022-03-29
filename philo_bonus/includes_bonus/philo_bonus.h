@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/29 17:56:20 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/29 19:46:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <sys/time.h>
+# include <errno.h>
 
 #endif

@@ -23,7 +23,7 @@ clean:
 	make -C $(MANDA_DIR) clean
 	make -C $(BONUS_DIR) clean
 
-fclean: clean
+fclean:
 	make -C $(MANDA_DIR) fclean
 	make -C $(BONUS_DIR) fclean
 

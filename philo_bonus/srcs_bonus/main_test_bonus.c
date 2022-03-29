@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:20:32 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/29 17:52:59 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/29 20:01:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,28 @@ void	testing_sems(t_test *testing)
 {
 	sem_t	*sem_test;
 
-	sem_test = sem_open(SEM_NAME, O_CREAT, S_IROTH | S_IWOTH, 2);
+	sem_test = sem_open(SEM_NAME, O_CREAT, 0777, 2);
 	if (sem_test == SEM_FAILED)
 	{
-		printf("ERROR : child sem_open() Failed\n");
+		printf("ERROR : [%s] : child sem_open() Failed\n", strerror(errno));
 		exit(EXIT_FAILURE);
 	}
+	printf("SUCCESS : child sem_open() worked\n");
 	if (sem_wait(sem_test) < 0)
 	{
-		printf("ERROR : child sem_wait() Failed\n");
+		printf("ERROR : [%s] : child sem_wait() Failed\n", strerror(errno));
 		exit(EXIT_FAILURE);
 	}
-	printf("[%d] has taken a fork\n", testing->id);
-	if (sem_wait(sem_test) < 0)
-	{
-		printf("ERROR : child sem_wait() Failed\n");
-		exit(EXIT_FAILURE);
-	}
+	printf("SUCCESS : child sem_wait() worked\n");
 	printf("[%d] has taken a fork\n", testing->id);
 	if (sem_post(sem_test) < 0)
 	{
-		printf("ERROR : child sem_post() Failed\n");
+		printf("ERROR : [%s] : child sem_post() Failed\n", strerror(errno));
 		exit(EXIT_FAILURE);
 	}
+	printf("SUCCESS : child sem_post() worked\n");
 	printf("[%d] has freed a fork\n", testing->id);
-	if (sem_post(sem_test) < 0)
-	{
-		printf("ERROR : child sem_post() Failed\n");
-		exit(EXIT_FAILURE);
-	}
-	printf("[%d] has freed a fork\n", testing->id);
+	exit(EXIT_SUCCESS);
 }
 
 int	main(void)
@@ -63,12 +55,17 @@ int	main(void)
 	int		i;
 	int		ret;
 
-	sem = sem_open(SEM_NAME, O_CREAT, S_IROTH | S_IWOTH, 1);
+	if (sem_unlink(SEM_NAME) < 0)
+	{
+		printf("ERROR : [%s] : sem_unlink() Failed\n", strerror(errno));
+	}
+	sem = sem_open(SEM_NAME, O_CREAT, 0777, 2);
 	if (sem == SEM_FAILED)
 	{
-		printf("ERROR : sem_open() Failed\n");
+		printf("ERROR : [%s] : sem_open() Failed\n", strerror(errno));
 		return (EXIT_FAILURE);
 	}
+	printf("SUCCESS : sem_open() worked\n");
 	i = 0;
 	while (i < 2)
 	{
@@ -84,8 +81,14 @@ int	main(void)
 	i = 0;
 	while (i < 2)
 	{
-		waitpid(pid[i], &ret, WUNTRACED);
+		waitpid(-1, &ret, WUNTRACED);
 		printf("ret_wait-[%d]\n", ret);
+		++i;
+	}
+	if (sem_unlink(SEM_NAME) < 0)
+	{
+		printf("ERROR : [%s] : sem_unlink() Failed\n", strerror(errno));
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
