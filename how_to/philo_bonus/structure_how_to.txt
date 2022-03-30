@@ -21,7 +21,13 @@ semaphore fork is init in main
 	sem is open in all children afterward
 	each time there is a fork, wait twice (for two forks)
 	each time it is done eating, post twice (for two forks)
+
 add threads for check of vitals in forks
+	before each start of routine, launch thread for vitals of philo
+		this thread starts in init_routine
+		(must define where it ends)
+	upon launch, it checks the vitals constantly
+		if there is a problem -> dead = 1
 	- the open of the semaphore for death will happen there (the post also)	
 
 add semaphore for death (kill everyone after sleep_routine)
