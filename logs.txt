@@ -1,18 +1,187 @@
-ERROR : [No such file or directory] : sem_unlink() Failed
-SUCCESS : sem_open() worked
-SUCCESS : child sem_open() worked
-SUCCESS : child sem_wait() worked
-[0] has taken a fork
-SUCCESS : child sem_post() worked
-[0] has freed a fork
-ERROR : [No such file or directory] : sem_unlink() Failed
-SUCCESS : sem_open() worked
-SUCCESS : child sem_open() worked
-SUCCESS : child sem_wait() worked
-[1] has taken a fork
-SUCCESS : child sem_post() worked
-[1] has freed a fork
-ERROR : [No such file or directory] : sem_unlink() Failed
-SUCCESS : sem_open() worked
-ret_wait-[0]
-ret_wait-[0]
+time-[0] id-[3] has taken a fork
+time-[0] id-[3] has taken a fork
+time-[0] id-[3] is eating
+time-[0] id-[2] has taken a fork
+time-[200] id-[3] is sleeping
+time-[200] id-[2] has taken a fork
+time-[200] id-[2] is eating
+time-[200] id-[2] is sleeping
+time-[0] id-[1] has taken a fork
+time-[0] id-[1] has taken a fork
+time-[0] id-[1] is eating
+time-[4] id-[1] is sleeping
+time-[400] id-[3] is thinking
+time-[400] id-[2] is thinking
+time-[400] id-[3] has taken a fork
+time-[400] id-[2] has taken a fork
+time-[400] id-[3] has taken a fork
+time-[400] id-[3] is eating
+time-[204] id-[1] is thinking
+time-[600] id-[3] is sleeping
+time-[401] id-[1] has taken a fork
+time-[601] id-[2] has taken a fork
+time-[601] id-[2] is eating
+time-[601] id-[2] is sleeping
+time-[401] id-[1] has taken a fork
+time-[401] id-[1] is eating
+time-[404] id-[1] is sleeping
+time-[800] id-[3] is thinking
+time-[800] id-[3] has taken a fork
+time-[800] id-[3] has taken a fork
+time-[800] id-[3] is eating
+time-[801] id-[2] is thinking
+time-[801] id-[2] has taken a fork
+time-[604] id-[1] is thinking
+time-[1001] id-[3] is sleeping
+time-[801] id-[1] has taken a fork
+time-[1001] id-[2] has taken a fork
+time-[1001] id-[2] is eating
+time-[1001] id-[2] is sleeping
+time-[801] id-[1] has taken a fork
+time-[801] id-[1] is eating
+time-[805] id-[1] is sleeping
+time-[1201] id-[2] is thinking
+time-[1201] id-[3] is thinking
+time-[1201] id-[2] has taken a fork
+time-[1201] id-[3] has taken a fork
+time-[1201] id-[2] has taken a fork
+time-[1201] id-[2] is eating
+time-[1005] id-[1] is thinking
+time-[1401] id-[2] is sleeping
+time-[1401] id-[3] has taken a fork
+time-[1201] id-[1] has taken a fork
+time-[1401] id-[3] is eating
+time-[1402] id-[3] is sleeping
+time-[1202] id-[1] has taken a fork
+time-[1202] id-[1] is eating
+time-[1205] id-[1] is sleeping
+time-[1601] id-[2] is thinking
+time-[1601] id-[2] has taken a fork
+time-[1601] id-[2] has taken a fork
+time-[1601] id-[2] is eating
+time-[1602] id-[3] is thinking
+time-[1602] id-[3] has taken a fork
+time-[1405] id-[1] is thinking
+time-[1801] id-[2] is sleeping
+time-[1601] id-[1] has taken a fork
+time-[1801] id-[3] has taken a fork
+time-[1801] id-[3] is eating
+time-[1802] id-[3] is sleeping
+time-[1602] id-[1] has taken a fork
+time-[1602] id-[1] is eating
+time-[1607] id-[1] is sleeping
+time-[2001] id-[2] is thinking
+time-[2001] id-[2] has taken a fork
+time-[2001] id-[2] has taken a fork
+time-[2001] id-[2] is eating
+time-[2002] id-[3] is thinking
+time-[2002] id-[3] has taken a fork
+time-[1807] id-[1] is thinking
+time-[2202] id-[2] is sleeping
+time-[2202] id-[3] has taken a fork
+time-[2002] id-[1] has taken a fork
+time-[2202] id-[3] is eating
+time-[2202] id-[3] is sleeping
+time-[2002] id-[1] has taken a fork
+time-[2002] id-[1] is eating
+time-[2007] id-[1] is sleeping
+time-[2402] id-[3] is thinking
+time-[2402] id-[2] is thinking
+time-[2402] id-[3] has taken a fork
+time-[2402] id-[2] has taken a fork
+time-[2402] id-[3] has taken a fork
+time-[2402] id-[3] is eating
+time-[2207] id-[1] is thinking
+time-[2602] id-[3] is sleeping
+time-[2402] id-[1] has taken a fork
+time-[2602] id-[2] has taken a fork
+time-[2602] id-[2] is eating
+time-[2602] id-[2] is sleeping
+time-[2402] id-[1] has taken a fork
+time-[2402] id-[1] is eating
+time-[2408] id-[1] is sleeping
+time-[2802] id-[2] is thinking
+time-[2802] id-[2] has taken a fork
+time-[2802] id-[2] has taken a fork
+time-[2802] id-[2] is eating
+time-[2802] id-[3] is thinking
+time-[2803] id-[3] has taken a fork
+time-[2608] id-[1] is thinking
+time-[3002] id-[2] is sleeping
+time-[2803] id-[1] has taken a fork
+time-[3003] id-[3] has taken a fork
+time-[3003] id-[3] is eating
+time-[3003] id-[3] is sleeping
+time-[2803] id-[1] has taken a fork
+time-[2803] id-[1] is eating
+time-[2819] id-[1] is sleeping
+time-[3202] id-[2] is thinking
+time-[3202] id-[2] has taken a fork
+time-[3202] id-[2] has taken a fork
+time-[3202] id-[2] is eating
+time-[3203] id-[3] is thinking
+time-[3203] id-[3] has taken a fork
+time-[3019] id-[1] is thinking
+time-[3402] id-[2] is sleeping
+time-[3402] id-[3] has taken a fork
+time-[3202] id-[1] has taken a fork
+time-[3402] id-[3] is eating
+time-[3403] id-[3] is sleeping
+time-[3203] id-[1] has taken a fork
+time-[3203] id-[1] is eating
+time-[3219] id-[1] is sleeping
+time-[3602] id-[2] is thinking
+time-[3602] id-[2] has taken a fork
+time-[3602] id-[2] has taken a fork
+time-[3602] id-[2] is eating
+time-[3603] id-[3] is thinking
+time-[3603] id-[3] has taken a fork
+time-[3419] id-[1] is thinking
+time-[3802] id-[2] is sleeping
+time-[3802] id-[3] has taken a fork
+time-[3602] id-[1] has taken a fork
+time-[3802] id-[3] is eating
+time-[3803] id-[3] is sleeping
+time-[3603] id-[1] has taken a fork
+time-[3604] id-[1] is eating
+time-[3619] id-[1] is sleeping
+time-[4002] id-[2] is thinking
+time-[4002] id-[2] has taken a fork
+time-[4002] id-[2] has taken a fork
+time-[4002] id-[2] is eating
+time-[4003] id-[3] is thinking
+time-[4003] id-[3] has taken a fork
+time-[3819] id-[1] is thinking
+time-[4202] id-[2] is sleeping
+time-[4202] id-[3] has taken a fork
+time-[4002] id-[1] has taken a fork
+time-[4202] id-[3] is eating
+time-[4203] id-[3] is sleeping
+time-[4003] id-[1] has taken a fork
+time-[4003] id-[1] is eating
+time-[4019] id-[1] is sleeping
+time-[4402] id-[2] is thinking
+time-[4402] id-[2] has taken a fork
+time-[4402] id-[2] has taken a fork
+time-[4402] id-[2] is eating
+time-[4403] id-[3] is thinking
+time-[4403] id-[3] has taken a fork
+time-[4219] id-[1] is thinking
+time-[4602] id-[2] is sleeping
+time-[4602] id-[3] has taken a fork
+time-[4402] id-[1] has taken a fork
+time-[4602] id-[3] is eating
+time-[4603] id-[3] is sleeping
+time-[4403] id-[1] has taken a fork
+time-[4403] id-[1] is eating
+time-[4419] id-[1] is sleeping
+time-[4802] id-[2] is thinking
+time-[4802] id-[2] has taken a fork
+time-[4802] id-[2] has taken a fork
+time-[4802] id-[2] is eating
+time-[4803] id-[3] is thinking
+time-[4803] id-[3] has taken a fork
+time-[4619] id-[1] is thinking
+exit-[0]
+exit-[0]
+exit-[0]

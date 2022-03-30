@@ -15,7 +15,8 @@ vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
 SRCS = main_bonus.c \
 	args_manager_bonus.c \
-	time_bonus.c \
+	eat_bonus.c sleep_bonus.c \
+	time_bonus.c print_bonus.c \
 	string_tools_bonus.c nbr_tools_bonus.c \
 	error_manager_bonus.c
 

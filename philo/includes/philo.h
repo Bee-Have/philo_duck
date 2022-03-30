@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 15:08:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:48:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,8 @@ int		init_mutexs(t_info *info, t_philo *philo);
 //destroy / free
 void	finish_simulation(t_info *info, t_philo *philo, pthread_t *tid);
 
-//time
-long	get_current_time(void);
-
 //print
 int		print_action(t_info *info, int id, int action);
-char	*format_msg(long lapsed_time, int id, int action);
-char	*get_msg(int action);
 
 //?			routine
 //god
@@ -91,6 +86,8 @@ void	unlock_fork_mutex(t_philo *philo);
 void	sleep_routine(t_philo *philo);
 
 //?			tools
+//time
+long	get_current_time(void);
 //strings
 int		am_strlen(char *str);
 char	*am_strdup(char *str);

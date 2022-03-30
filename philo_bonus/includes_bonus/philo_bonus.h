@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 15:58:03 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/30 19:46:36 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,27 @@
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <sys/time.h>
+# include <signal.h>
 # include <errno.h>
+
+#define SEM_DEATH "/sem_death"
+#define SEM_FORKS "/sem_fork"
 
 # define ERNO_FORMAT 0
 # define ERNO_ARGS 1
 
+# define MSG_FORK_ON 0
+# define MSG_EAT 1
+# define MSG_SLEEP 2
+# define MSG_THINK 3
+# define MSG_DIED 4
+
 typedef struct	s_info
 {
+	sem_t			*sem_forks;
 	pthread_mutex_t	death;
 	int				dead;
+	int				id;
 	long			nbrp;
 	long			time_die;
 	long			time_eat;
@@ -44,10 +56,18 @@ typedef struct	s_info
 //parsing
 int		args_manager(int ac, char **av, t_info *info);
 
-//init
-int		init_info(int ac, char **av, t_info *info);
+//?			routine
+//eat
+void	eat_routine(t_info *info);
+//sleep
+void	sleep_routine(t_info *info);
+
+//print
+void	print_action(t_info *info, int action);
 
 //?			tools
+//time
+long	get_current_time(void);
 //strings
 int		am_strlen(char *str);
 char	*am_strdup(char *str);
