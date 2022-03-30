@@ -1,0 +1,18 @@
+parse arguments
+
+init vars : 
+    - struct info
+    - forks semaphores
+    - death semaphore
+    - pid for philos
+
+
+first parse args, check that parsing is done correctly
+
+then start making simple routine with fork() (dies after sleep)
+
+add semaphore for death (kill everyone after sleep)
+
+add semaphores for forks
+add threads for check of vitals in forks
+    - the open of the semaphore for death will happen there (the post also)	

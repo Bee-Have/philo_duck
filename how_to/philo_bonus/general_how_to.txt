@@ -7,3 +7,7 @@ these forks will use counting semaphores for the forks
 but what of the shared variables ?
 
 ATTENTION FORK COMMENCE AU DEBUT DU MAIN ! PAS APRES LE FORK
+
+fork starts :
+launches routine
+create thread to check vitals

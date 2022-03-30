@@ -1,70 +1,72 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nbr_tools.c                                        :+:      :+:    :+:   */
+/*   string_tools_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 02:00:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 15:04:13 by amarini-         ###   ########.fr       */
+/*   Created: 2022/03/17 01:44:58 by amarini-          #+#    #+#             */
+/*   Updated: 2022/03/30 16:51:04 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
-static int	calc_len(long nbr)
+int	am_strlen(char *str)
 {
-	int	len;
+	int	i;
 
-	len = 1;
-	while (nbr > 9)
-	{
-		nbr /= 10;
-		++len;
-	}
-	return (len);
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+		++i;
+	return (i);
 }
 
-char	*am_ltoa(long nbr)
+char	*am_strdup(char *str)
 {
 	char	*res;
 	int		len;
 	int		i;
 
 	i = 0;
-	len = calc_len(nbr);
+	len = am_strlen(str);
 	res = (char *)malloc((len + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	res[len] = '\0';
 	while (i < len)
 	{
-		res[len - i - 1] = (nbr % 10) + '0';
-		nbr /= 10;
+		res[i] = str[i];
 		++i;
 	}
 	return (res);
 }
 
-long	am_atol(char *str)
+char	*am_strjoin(char *prefix, char *sufix)
 {
-	long	res;
+	char	*res;
+	int		len;
 	int		i;
 
 	i = 0;
-	if (am_strlen(str) > 10)
-		return (-1);
-	if (str[0] == '-')
-		i = 1;
-	res = 0;
-	while (str[i] != '\0')
+	len = am_strlen(prefix) + am_strlen(sufix);
+	res = (char *)malloc((len + 1) * sizeof(char));
+	if (!res)
+		return (NULL);
+	res[len] = '\0';
+	while (i < len)
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (-1);
-		res = (res * 10) + (str[i] - '0');
+		if (prefix[i] == '\0')
+			break ;
+		res[i] = prefix[i];
 		++i;
 	}
-	if (str[0] == '-')
-		res *= -1;
+	while (i < len)
+	{
+		res[i] = sufix[i - am_strlen(prefix)];
+		++i;
+	}
 	return (res);
 }

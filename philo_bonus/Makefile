@@ -13,7 +13,11 @@ INC = -I$(INC_DIR)
 
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
-SRCS = main_test_bonus.c
+SRCS = main_bonus.c \
+	args_manager_bonus.c \
+	time_bonus.c \
+	string_tools_bonus.c nbr_tools_bonus.c \
+	error_manager_bonus.c
 
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
