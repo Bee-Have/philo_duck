@@ -51,7 +51,6 @@ static char	*format_msg(long lapsed_time, int id, int action)
 	return (msg);
 }
 
-// make it thread safe
 int	print_action(t_info *info, int id, int action)
 {
 	static long	start_time = 0;

@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sleep_bonus.c                                      :+:      :+:    :+:   */
+/*   init_routine_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 17:36:42 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/31 22:02:36 by amarini-         ###   ########.fr       */
+/*   Created: 2022/03/31 17:52:54 by amarini-          #+#    #+#             */
+/*   Updated: 2022/04/01 00:05:10 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-void	sleep_routine(t_philo *philo)
+void	init_routine(t_philo *philo)
 {
-	if (check_death(philo) == EXIT_FAILURE)
-		exit (EXIT_FAILURE);
-	if (print_action(philo, MSG_SLEEP) == EXIT_FAILURE)
-		exit (EXIT_FAILURE);
-	if (wait_time(philo->info->time_eat, philo) == EXIT_FAILURE)
-		exit(EXIT_FAILURE);
-	if (print_action(philo, MSG_THINK) == EXIT_FAILURE)
-		exit (EXIT_FAILURE);
-	if (check_death(philo) == EXIT_FAILURE)
-		exit (EXIT_FAILURE);
+	pthread_t	tid;
+
+	//init mutexs
+	pthread_mutex_init(&philo->meal, NULL);
+	pthread_mutex_init(&philo->death, NULL);
+	//launch thread
+	pthread_create(&tid, NULL, check_vitals, philo);
+	//call eat routine
 	eat_routine(philo);
+	//thread join here or in main ?
+	pthread_join(tid, NULL);
+	pthread_mutex_destroy(&philo->meal);
+	pthread_mutex_destroy(&philo->death);
 }

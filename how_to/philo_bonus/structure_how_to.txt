@@ -26,8 +26,13 @@ add threads for check of vitals in forks
 	before each start of routine, launch thread for vitals of philo
 		this thread starts in init_routine
 		(must define where it ends)
+		init mutex for death
 	upon launch, it checks the vitals constantly
 		if there is a problem -> dead = 1
 	- the open of the semaphore for death will happen there (the post also)	
 
 add semaphore for death (kill everyone after sleep_routine)
+
+
+
+how the fuck are we gonna do the all eat thing ?

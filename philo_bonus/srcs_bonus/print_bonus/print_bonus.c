@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:17:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 17:50:38 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/03/31 18:58:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,25 @@ static char	*format_msg(long lapsed_time, int id, int action)
 	return (msg);
 }
 
-void	print_action(t_info *info, int action)
+int	print_action(t_philo *philo, int action)
 {
 	static long	start_time = 0;
 	long		current_time;
 	char		*msg;
 
+	if (check_death(philo) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 	current_time = get_current_time();
 	if (start_time == 0)
 		start_time = current_time;
 	current_time = current_time - start_time;
-	msg = format_msg(current_time, info->id, action);
+	msg = format_msg(current_time, philo->id, action);
+	if (check_death(philo) == EXIT_FAILURE)
+	{
+		free(msg);
+		return (EXIT_FAILURE);
+	}
 	write(STDOUT_FILENO, msg, am_strlen(msg));
 	free(msg);
+	return (EXIT_SUCCESS);
 }
