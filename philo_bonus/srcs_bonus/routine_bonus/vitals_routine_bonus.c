@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 17:55:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/01 00:05:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:58:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ void	*check_vitals(void *human)
 	t_info	*all_info;
 	long	elapsed;
 
-	printf("test checking vitals\n");
 	philo = (t_philo *)human;
 	all_info = philo->info;
 	while (1)
 	{
-		//check last_meal
+		check_meals_nbr(philo);
 		pthread_mutex_lock(&philo->meal);
 		if (philo->last_meal == 0)
 			elapsed = 0;
@@ -41,6 +40,19 @@ void	*check_vitals(void *human)
 		}
 	}
 	return (NULL);
+}
+
+void	check_meals_nbr(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->meals_n);
+	if (philo->meals_nbr == philo->info->must_eat)
+	{
+		write(2, "HERE\n", 5);
+		philo->meals_nbr += 1;
+		pthread_mutex_unlock(&philo->meals_n);
+		sem_post(philo->sem_meals);
+	}
+	pthread_mutex_unlock(&philo->meals_n);
 }
 
 int	check_death(t_philo *philo)

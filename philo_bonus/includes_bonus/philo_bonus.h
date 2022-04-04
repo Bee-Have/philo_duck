@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/31 22:24:17 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:24:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define SEM_DEATH "/sem_death"
 # define SEM_PICK_FORK "/sem_pick_fork"
 # define SEM_FORKS "/sem_fork"
+# define SEM_MEALS "/sem_meals"
 
 # define ERNO_FORMAT 0
 # define ERNO_ARGS 1
@@ -55,11 +56,14 @@ typedef struct	s_philo
 	sem_t			*sem_death;
 	sem_t			*sem_pick_fork;
 	sem_t			*sem_forks;
+	sem_t			*sem_meals;
 	int				id;
 	t_info			*info;
 	pthread_mutex_t	death;
+	pthread_mutex_t	meals_n;
 	pthread_mutex_t	meal;
 	int				dead;
+	int				meals_nbr;
 	long			last_meal;
 }				t_philo;
 
@@ -71,8 +75,10 @@ int		args_manager(int ac, char **av, t_info *info);
 void	init_routine(t_philo *philo);
 //vitals
 void	*check_vitals(void *human);
+void	check_meals_nbr(t_philo *philo);
 int		check_death(t_philo *philo);
 //general
+void	check_meals_routine(t_philo *philo);
 void	death_routine(pid_t *pid, t_philo *philo);
 int		wait_time(long given, t_philo *philo);
 //eat

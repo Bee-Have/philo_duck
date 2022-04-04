@@ -36,3 +36,9 @@ add semaphore for death (kill everyone after sleep_routine)
 
 
 how the fuck are we gonna do the all eat thing ?
+
+semaphore for number of meals
+semaphore is init with 0 value
+each time a philo eats the number of time sem_post()
+increment int
+if int == nbr of philo -> kill everyone
