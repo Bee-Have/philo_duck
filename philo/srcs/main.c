@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 18:00:47 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 22:01:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	finish_simulation(t_info *info, t_philo *philo, pthread_t *tid)
 	{
 		pthread_mutex_destroy(&(info->forks[i]));
 		pthread_mutex_destroy(&(philo[i].meal));
+		pthread_mutex_destroy(&(philo[i].meals_n));
 		++i;
 	}
 	pthread_mutex_destroy(&info->time);

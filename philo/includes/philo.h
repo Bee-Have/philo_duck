@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 17:48:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 22:01:10 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ typedef struct s_info
 typedef struct s_philo
 {
 	int				id;
-	int				ate;
+	int				meals_nbr;
 	long			last_meal;
 	pthread_mutex_t	meal;
+	pthread_mutex_t	meals_n;
 	t_info			*info;
 }				t_philo;
 

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 17:16:05 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 22:11:06 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ void	*god_routine(void *humans)
 		if (god_check_vitals(all_info, philo) == EXIT_FAILURE
 			|| (all_info->must_eat != -1
 				&& god_check_meals(all_info, philo) == EXIT_FAILURE))
+		{
+			pthread_mutex_lock(&philo->info->death);
+			all_info->dead = 1;
+			pthread_mutex_unlock(&philo->info->death);
 			break ;
+		}
 		usleep(1000);
 	}
 	return (NULL);
@@ -48,9 +53,6 @@ int	god_check_vitals(t_info *all_info, t_philo *philo)
 		if (elapsed >= all_info->time_die)
 		{
 			print_action(all_info, philo[i].id, MSG_DIED);
-			pthread_mutex_lock(&philo->info->death);
-			all_info->dead = 1;
-			pthread_mutex_unlock(&philo->info->death);
 			return (EXIT_FAILURE);
 		}
 		++i;
@@ -65,8 +67,13 @@ int	god_check_meals(t_info *all_info, t_philo *philo)
 	i = 0;
 	while (i < all_info->nbrp)
 	{
-		if (philo[i].ate < all_info->must_eat)
+		pthread_mutex_lock(&(philo[i].meals_n));
+		if (philo[i].meals_nbr < all_info->must_eat)
+		{
+			pthread_mutex_unlock(&(philo[i].meals_n));
 			return (EXIT_SUCCESS);
+		}
+		pthread_mutex_unlock(&(philo[i].meals_n));
 		++i;
 	}
 	return (EXIT_FAILURE);

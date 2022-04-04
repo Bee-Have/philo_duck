@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 17:55:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 18:58:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 19:01:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	check_meals_nbr(t_philo *philo)
 	pthread_mutex_lock(&philo->meals_n);
 	if (philo->meals_nbr == philo->info->must_eat)
 	{
-		write(2, "HERE\n", 5);
 		philo->meals_nbr += 1;
 		pthread_mutex_unlock(&philo->meals_n);
 		sem_post(philo->sem_meals);

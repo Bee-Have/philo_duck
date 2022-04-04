@@ -2,29 +2,12 @@ time-[0] id-[1] has taken a fork
 time-[0] id-[1] has taken a fork
 time-[0] id-[1] is eating
 time-[200] id-[1] is sleeping
-time-[0] id-[2] has taken a fork
-time-[0] id-[2] has taken a fork
-time-[0] id-[2] is eating
+time-[200] id-[3] has taken a fork
+time-[201] id-[3] has taken a fork
+time-[201] id-[3] is eating
 time-[400] id-[1] is thinking
-time-[400] id-[1] has taken a fork
-time-[401] id-[1] has taken a fork
-time-[401] id-[1] is eating
-time-[200] id-[2] is sleeping
-time-[401] id-[2] is thinking
-time-[601] id-[1] is sleeping
+time-[401] id-[3] is sleeping
 time-[401] id-[2] has taken a fork
 time-[401] id-[2] has taken a fork
 time-[401] id-[2] is eating
-time-[801] id-[1] is thinking
-time-[601] id-[2] is sleeping
-time-[801] id-[1] has taken a fork
-time-[801] id-[1] has taken a fork
-time-[801] id-[1] is eating
-time-[801] id-[2] is thinking
-HERE
-time-[1001] id-[1] is sleeping
-time-[801] id-[2] has taken a fork
-time-[802] id-[2] has taken a fork
-time-[802] id-[2] is eating
-HERE
-time-[1002] id-[2] is sleeping
+time-[410] id-[1] died

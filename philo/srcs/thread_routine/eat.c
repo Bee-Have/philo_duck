@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/26 18:08:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 22:04:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ void	*eat_routine(void *var)
 		return (NULL);
 	}
 	unlock_fork_mutex(philo);
+	pthread_mutex_lock(&philo->meals_n);
+	++philo->meals_nbr;
+	pthread_mutex_unlock(&philo->meals_n);
 	if (philo_check_death(philo->info) == EXIT_FAILURE)
 		return (NULL);
 	sleep_routine(philo);
