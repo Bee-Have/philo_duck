@@ -6,13 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 02:00:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 16:50:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 02:25:59 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-static int	calc_len(long nbr)
+int	calc_len(long nbr)
 {
 	int	len;
 

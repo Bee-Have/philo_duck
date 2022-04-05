@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 22:01:10 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 00:18:53 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,9 @@ long	get_current_time(void);
 int		am_strlen(char *str);
 char	*am_strdup(char *str);
 char	*am_strjoin(char *prefix, char *sufix);
+void	am_bzero(char *str, int len);
 //nbrs
+int		calc_len(long nbr);
 char	*am_ltoa(long nbr);
 long	am_atol(char *str);
 

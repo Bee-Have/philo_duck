@@ -6,13 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 02:00:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 15:04:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 00:04:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	calc_len(long nbr)
+int	calc_len(long nbr)
 {
 	int	len;
 

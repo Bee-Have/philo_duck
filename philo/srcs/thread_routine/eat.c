@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 22:04:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 05:20:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ void	*eat_routine(void *var)
 		unlock_fork_mutex(philo);
 		return (NULL);
 	}
-	pthread_mutex_lock(&philo->meal);
-	philo->last_meal = get_current_time();
-	pthread_mutex_unlock(&philo->meal);
 	if (wait_time(philo->info->time_eat, philo->info) == EXIT_FAILURE)
 	{
 		unlock_fork_mutex(philo);
@@ -49,6 +46,9 @@ int	print_meal_actions(t_philo *philo)
 		return (EXIT_FAILURE);
 	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
+	pthread_mutex_lock(&philo->meal);
+	philo->last_meal = get_current_time();
+	pthread_mutex_unlock(&philo->meal);
 	if (print_action(philo->info, philo->id, MSG_EAT) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);

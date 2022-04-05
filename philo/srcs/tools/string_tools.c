@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 01:44:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/23 17:07:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 02:23:37 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,16 @@ char	*am_strjoin(char *prefix, char *sufix)
 		++i;
 	}
 	return (res);
+}
+
+void	am_bzero(char *str, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i <= len)
+	{
+		str[i] = '\0';
+		++i;
+	}
 }

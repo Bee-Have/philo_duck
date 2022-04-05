@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 22:14:48 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 18:36:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/04 23:55:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	check_meals_routine(t_philo *philo)
 	{
 		sem_wait(philo->sem_meals);
 		++count;
-		printf("count-[%d]\n", count);
 		if (count == philo->info->nbrp)
 			sem_post(philo->sem_death);
 	}

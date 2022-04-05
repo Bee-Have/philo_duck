@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 17:55:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 19:01:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 05:45:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ void	*check_vitals(void *human)
 
 	philo = (t_philo *)human;
 	all_info = philo->info;
+	if (all_info->nbrp == 1)
+	{
+		print_action(philo, MSG_DIED);
+		pthread_mutex_lock(&philo->death);
+		philo->dead = 1;
+		pthread_mutex_unlock(&philo->death);
+		sem_post(philo->sem_death);
+		return (NULL);
+	}
 	while (1)
 	{
 		check_meals_nbr(philo);

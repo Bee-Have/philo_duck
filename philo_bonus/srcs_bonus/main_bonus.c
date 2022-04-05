@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:21:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 18:57:33 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 03:01:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int ac, char **av)
 	sem_unlink(SEM_PICK_FORK);
 	sem_unlink(SEM_DEATH);
 	sem_unlink(SEM_MEALS);
+	sem_unlink(SEM_WRITE);
 	if (args_manager(ac, av, &info) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	philo.info = &info;
@@ -40,6 +41,7 @@ int	main(int ac, char **av)
 	philo.sem_pick_fork = sem_open(SEM_PICK_FORK, O_CREAT, 0777, 1);
 	philo.sem_meals = sem_open(SEM_MEALS, O_CREAT, 0777, 0);
 	philo.sem_death = sem_open(SEM_DEATH, O_CREAT, 0777, 0);
+	philo.sem_write = sem_open(SEM_WRITE, O_CREAT, 0777, 1);
 	if (philo.info->must_eat != -1)
 		pid = (pid_t *)malloc((philo.info->nbrp + 1) * sizeof(pid_t));
 	else
@@ -74,5 +76,6 @@ int	main(int ac, char **av)
 	sem_unlink(SEM_PICK_FORK);
 	sem_unlink(SEM_DEATH);
 	sem_unlink(SEM_MEALS);
+	sem_unlink(SEM_WRITE);
 	return (EXIT_SUCCESS);
 }

@@ -6,11 +6,22 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 22:11:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 05:57:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	unlock_all_forks(t_info *all_info)
+{
+	int	i;
+
+	while (i < all_info->nbrp)
+	{
+		pthread_mutex_unlock(&(all_info->forks[i]));
+		++i;
+	}
+}
 
 void	*god_routine(void *humans)
 {
@@ -28,6 +39,7 @@ void	*god_routine(void *humans)
 			pthread_mutex_lock(&philo->info->death);
 			all_info->dead = 1;
 			pthread_mutex_unlock(&philo->info->death);
+			unlock_all_forks(all_info);
 			break ;
 		}
 		usleep(1000);
@@ -45,10 +57,7 @@ int	god_check_vitals(t_info *all_info, t_philo *philo)
 	while (i < all_info->nbrp)
 	{
 		pthread_mutex_lock(&(philo[i].meal));
-		if (philo[i].last_meal == 0)
-			elapsed = 0;
-		else
-			elapsed = get_current_time() - philo[i].last_meal;
+		elapsed = get_current_time() - philo[i].last_meal;
 		pthread_mutex_unlock(&(philo[i].meal));
 		if (elapsed >= all_info->time_die)
 		{

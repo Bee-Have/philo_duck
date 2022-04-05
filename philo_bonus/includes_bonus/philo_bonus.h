@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 18:24:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 02:33:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define SEM_PICK_FORK "/sem_pick_fork"
 # define SEM_FORKS "/sem_fork"
 # define SEM_MEALS "/sem_meals"
+# define SEM_WRITE "/sem_write"
 
 # define ERNO_FORMAT 0
 # define ERNO_ARGS 1
@@ -57,6 +58,7 @@ typedef struct	s_philo
 	sem_t			*sem_pick_fork;
 	sem_t			*sem_forks;
 	sem_t			*sem_meals;
+	sem_t			*sem_write;
 	int				id;
 	t_info			*info;
 	pthread_mutex_t	death;
@@ -98,7 +100,9 @@ long	get_current_time(void);
 int		am_strlen(char *str);
 char	*am_strdup(char *str);
 char	*am_strjoin(char *prefix, char *sufix);
+void	am_bzero(char *str, int len);
 //nbrs
+int		calc_len(long nbr);
 char	*am_ltoa(long nbr);
 long	am_atol(char *str);
 

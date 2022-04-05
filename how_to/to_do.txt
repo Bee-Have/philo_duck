@@ -1,0 +1,2 @@
+Issue - When there is only one philo, he die right away without closing the program.
+Format - Be careful that the death msg is the last one.

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:11:50 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 18:54:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 05:10:41 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	eat_routine(t_philo *philo)
 {
+	if (check_death(philo) == EXIT_FAILURE)
+		exit (EXIT_FAILURE);
 	sem_wait(philo->sem_pick_fork);
 	sem_wait(philo->sem_forks);
 	if (print_action(philo, MSG_FORK_ON) == EXIT_FAILURE)
@@ -49,5 +51,7 @@ void	eat_routine(t_philo *philo)
 	pthread_mutex_lock(&philo->meals_n);
 	philo->meals_nbr += 1;
 	pthread_mutex_unlock(&philo->meals_n);
+	if (check_death(philo) == EXIT_FAILURE)
+		exit (EXIT_FAILURE);
 	sleep_routine(philo);
 }
