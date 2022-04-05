@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 18:55:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:39:08 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		wait_time(long given, t_info *info);
 //eat
 void	*eat_routine(void *var);
 int		print_meal_actions(t_philo *philo);
-void	lock_fork_mutex(t_philo *philo);
+int		lock_fork_mutex(t_philo *philo);
 void	unlock_fork_mutex(t_philo *philo);
 //sleep / think
 void	sleep_routine(t_philo *philo);

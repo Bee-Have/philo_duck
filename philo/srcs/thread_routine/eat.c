@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 05:20:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:38:43 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	*eat_routine(void *var)
 	philo = (t_philo *)var;
 	if (philo_check_death(philo->info) == EXIT_FAILURE)
 		return (NULL);
-	lock_fork_mutex(philo);
+	if (lock_fork_mutex(philo) == EXIT_FAILURE)
+		return (NULL);
 	if (print_meal_actions(philo) == EXIT_FAILURE)
 	{
 		unlock_fork_mutex(philo);
@@ -42,10 +43,6 @@ void	*eat_routine(void *var)
 
 int	print_meal_actions(t_philo *philo)
 {
-	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
 	pthread_mutex_lock(&philo->meal);
 	philo->last_meal = get_current_time();
 	pthread_mutex_unlock(&philo->meal);
@@ -54,24 +51,51 @@ int	print_meal_actions(t_philo *philo)
 	return (EXIT_SUCCESS);
 }
 
-void	lock_fork_mutex(t_philo *philo)
+int	lock_fork_mutex(t_philo *philo)
 {
+	int	index;
+
 	if ((philo->id % 2) == 0)
 	{
 		pthread_mutex_lock(&(philo->info->forks[philo->id]));
+		if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
+		{
+			pthread_mutex_unlock(&(philo->info->forks[philo->id]));
+			return (EXIT_FAILURE);
+		}
 		if (philo->id == philo->info->nbrp - 1)
-			pthread_mutex_lock(&(philo->info->forks[0]));
+			index = 0;
 		else
-			pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
+			index = philo->id + 1;
+		pthread_mutex_lock(&(philo->info->forks[index]));
+		if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
+		{
+			pthread_mutex_unlock(&(philo->info->forks[index]));
+			pthread_mutex_unlock(&(philo->info->forks[philo->id]));
+			return (EXIT_FAILURE);
+		}
 	}
 	else
 	{
 		if (philo->id == philo->info->nbrp - 1)
-			pthread_mutex_lock(&(philo->info->forks[0]));
+			index = 0;
 		else
-			pthread_mutex_lock(&(philo->info->forks[philo->id + 1]));
+			index = philo->id + 1;
+		pthread_mutex_lock(&(philo->info->forks[index]));
+		if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
+		{
+			pthread_mutex_unlock(&(philo->info->forks[index]));
+			return (EXIT_FAILURE);
+		}
 		pthread_mutex_lock(&(philo->info->forks[philo->id]));
+		if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
+		{
+			pthread_mutex_unlock(&(philo->info->forks[index]));
+			pthread_mutex_unlock(&(philo->info->forks[philo->id]));
+			return (EXIT_FAILURE);
+		}
 	}
+	return (EXIT_SUCCESS);
 }
 
 void	unlock_fork_mutex(t_philo *philo)
