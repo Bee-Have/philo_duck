@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 06:08:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:13:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 	philo = init_philo(&info, &tid);
 	if (!philo)
 		return (EXIT_FAILURE);
+	print_action(&info, 0, MSG_START);
 	while (i < info.nbrp)
 	{
 		philo[i].id = i;

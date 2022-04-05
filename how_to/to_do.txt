@@ -1,2 +1,5 @@
 Issue - When there is only one philo, he die right away without closing the program.
 Format - Be careful that the death msg is the last one.
+
+
+must make first call to print so that start time is set

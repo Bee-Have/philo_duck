@@ -44,6 +44,11 @@ static void	format_msg(char msg[42], long lapsed_time, int id, int action)
 {
 	int	len;
 
+	if (action == MSG_START)
+	{
+		add_str(msg + 0, "starting simulation\n");
+		return ;
+	}
 	add_nbr(msg + 0, lapsed_time);
 	len = am_strlen(msg);
 	add_str(msg + len, " ");
