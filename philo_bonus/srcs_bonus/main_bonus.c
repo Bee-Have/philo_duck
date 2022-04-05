@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:21:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 03:01:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 22:53:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,18 @@ int	main(int ac, char **av)
 		pid = (pid_t *)malloc(philo.info->nbrp * sizeof(pid_t));
 	if (!pid)
 		return (EXIT_FAILURE);
-	i = 0; 
+	i = 0;
+	philo.info->start_time = get_current_time();
+	print_action(&philo, MSG_START);
 	while (i < philo.info->nbrp)
 	{
 		philo.id = i;
 		pid[i] = fork();
 		if (pid[i] == 0)
+		{
+			philo.last_meal = get_current_time();
 			init_routine(&philo);
+		}
 		++i;
 	}
 	if (philo.info->must_eat != -1)

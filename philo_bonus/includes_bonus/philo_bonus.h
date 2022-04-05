@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 02:33:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:58:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@
 # define ERNO_FORMAT 0
 # define ERNO_ARGS 1
 
-# define MSG_FORK_ON 0
-# define MSG_EAT 1
-# define MSG_SLEEP 2
-# define MSG_THINK 3
-# define MSG_DIED 4
+# define MSG_START 0
+# define MSG_FORK_ON 1
+# define MSG_EAT 2
+# define MSG_SLEEP 3
+# define MSG_THINK 4
+# define MSG_DIED 5
 
 typedef struct	s_info
 {
+	long			start_time;
 	long			nbrp;
 	long			time_die;
 	long			time_eat;

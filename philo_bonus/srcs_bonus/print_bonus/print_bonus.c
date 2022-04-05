@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 17:17:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 02:57:49 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/05 22:54:29 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ static void	format_msg(char msg[42], long lapsed_time, int id, int action)
 {
 	int	len;
 
+	if (action == MSG_START)
+	{
+		add_str(msg + 0, "starting simulation\n");
+		return ;
+	}
 	add_nbr(msg + 0, lapsed_time);
 	len = am_strlen(msg);
 	add_str(msg + len, " ");
@@ -63,7 +68,6 @@ static void	format_msg(char msg[42], long lapsed_time, int id, int action)
 
 int	print_action(t_philo *philo, int action)
 {
-	static long	start_time = 0;
 	long		current_time;
 	char		msg[42];
 
@@ -72,9 +76,7 @@ int	print_action(t_philo *philo, int action)
 	if (check_death(philo) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	current_time = get_current_time();
-	if (start_time == 0)
-		start_time = current_time;
-	current_time = current_time - start_time;
+	current_time = current_time - philo->info->start_time;
 	if (check_death(philo) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	format_msg(msg, current_time, philo->id + 1, action);

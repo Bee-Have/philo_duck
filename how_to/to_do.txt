@@ -1,5 +1,8 @@
 Issue - When there is only one philo, he die right away without closing the program.
 Format - Be careful that the death msg is the last one.
 
-Issue - Print of taking fork in mandatory should be right after mutex lock, not after both mutex lock
-must make first call to print so that start time is set
+for each process, the start time must be the same
+it could be a shared var ?
+	only one call of get_current_time()
+set right before the fork
+which means last_meal must also be set at the time
