@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 21:58:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 05:25:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define MSG_THINK 4
 # define MSG_DIED 5
 
-typedef struct	s_info
+typedef struct s_info
 {
 	long			start_time;
 	long			nbrp;
@@ -54,7 +54,7 @@ typedef struct	s_info
 	long			must_eat;
 }				t_info;
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	sem_t			*sem_death;
 	sem_t			*sem_pick_fork;
@@ -87,8 +87,8 @@ void	death_routine(pid_t *pid, t_philo *philo);
 int		wait_time(long given, t_philo *philo);
 //eat
 void	eat_routine(t_philo *philo);
-int		lock_forks(t_philo *philo);
-int		unlock_forks(t_philo *philo);
+void	pick_up_forks(t_philo *philo);
+void	eat(t_philo *philo);
 //sleep/think
 void	sleep_routine(t_philo *philo);
 
