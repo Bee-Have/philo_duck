@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 01:44:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 02:23:37 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 02:25:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	am_bzero(char *str, int len)
 	int	i;
 
 	i = 0;
-	while (i <= len)
+	while (i < len)
 	{
 		str[i] = '\0';
 		++i;

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:01:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/04 22:01:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 05:12:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	init_mutexs(t_info *info, t_philo *philo)
 		pthread_mutex_init(&(philo[i].meals_n), NULL);
 		++i;
 	}
-	
 	pthread_mutex_init(&info->time, NULL);
 	pthread_mutex_init(&info->death, NULL);
 	return (EXIT_SUCCESS);

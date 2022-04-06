@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 04:40:47 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 22:54:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 05:09:48 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int ac, char **av)
 		pthread_create(&(tid[i]), NULL, eat_routine, &(philo[i]));
 		++i;
 	}
-	pthread_create(&(tid[info.nbrp + 1]), NULL, god_routine, philo);
+	pthread_create(&(tid[philo->info->nbrp]), NULL, god_routine, philo);
 	finish_simulation(&info, philo, tid);
 	return (EXIT_SUCCESS);
 }

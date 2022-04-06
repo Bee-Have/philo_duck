@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 06:41:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 05:09:19 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	unlock_all_forks(t_info *all_info)
 {
 	int	i;
 
+	i = 0;
 	while (i < all_info->nbrp)
 	{
 		pthread_mutex_unlock(&(all_info->forks[i]));
