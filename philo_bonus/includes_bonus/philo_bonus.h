@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 05:25:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 06:12:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,13 @@ typedef struct s_philo
 	long			last_meal;
 }				t_philo;
 
+//?			managments
 //parsing
 int		args_manager(int ac, char **av, t_info *info);
+//init / malloc
+int		init_info(int ac, char **av, t_info *info);
+int		init_philo(t_philo *philo, pid_t **pid);
+void	init_semaphores(t_philo *philo);
 
 //?			routine
 //init

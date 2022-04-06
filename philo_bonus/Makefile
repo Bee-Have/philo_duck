@@ -14,7 +14,7 @@ INC = -I$(INC_DIR)
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
 SRCS = main_bonus.c \
-	args_manager_bonus.c \
+	args_manager_bonus.c struct_bonus.c \
 	death_bonus.c \
 	init_routine_bonus.c \
 	vitals_routine_bonus.c \
