@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 05:09:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 05:44:03 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,9 @@ typedef struct s_philo
 	t_info			*info;
 }				t_philo;
 
-//parsing arguments
-int		args_manager(int ac, char **av, t_info *info);
-
 //?			managments
+//parsing
+int		args_manager(int ac, char **av, t_info *info);
 //init / malloc
 int		init_info(int ac, char **av, t_info *info);
 t_philo	*init_philo(t_info *info, pthread_t **tid);
@@ -67,7 +66,7 @@ int		init_mutexs(t_info *info, t_philo *philo);
 //destroy / free
 void	finish_simulation(t_info *info, t_philo *philo, pthread_t *tid);
 
-//print
+//?			print
 int		print_action(t_info *info, int id, int action);
 
 //?			routine

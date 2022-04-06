@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 05:08:45 by amarini-          #+#    #+#             */
-/*   Updated: 2022/03/30 15:00:14 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/06 05:42:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,5 @@ int	args_manager(int ac, char **av, t_info *info)
 		return (EXIT_FAILURE);
 	}
 	info->dead = 0;
-	return (EXIT_SUCCESS);
-}
-
-int	init_info(int ac, char **av, t_info *info)
-{
-	info->nbrp = am_atol(av[1]);
-	info->time_die = am_atol(av[2]);
-	info->time_eat = am_atol(av[3]);
-	info->time_sleep = am_atol(av[4]);
-	if (ac == 6)
-	{
-		info->must_eat = am_atol(av[5]);
-		if (info->must_eat <= 0 || info->must_eat > INT_MAX)
-			return (EXIT_FAILURE);
-	}
-	else
-		info->must_eat = -1;
 	return (EXIT_SUCCESS);
 }
