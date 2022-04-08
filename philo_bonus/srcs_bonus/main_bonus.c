@@ -6,11 +6,40 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:21:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 07:24:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 01:11:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
+
+void	start_simulation(t_philo *philo, pid_t **pid)
+{
+	int		i;
+
+	if (philo->info->must_eat != -1)
+		*pid = (pid_t *)malloc((philo->info->nbrp + 1) * sizeof(pid_t));
+	else
+		*pid = (pid_t *)malloc(philo->info->nbrp * sizeof(pid_t));
+	if (!*pid)
+		return ;
+	i = 0;
+	philo->info->start_time = get_current_time();
+	print_action(philo, MSG_START);
+	while (i < philo->info->nbrp)
+	{
+		philo->id = i;
+		(*pid)[i] = fork();
+		if ((*pid)[i] == 0)
+			init_routine(philo);
+		++i;
+	}
+	if (philo->info->must_eat != -1)
+	{
+		(*pid)[i] = fork();
+		if ((*pid)[i] == 0)
+			check_meals_routine(philo);
+	}
+}
 
 void	finish_simulation(pid_t *pid, t_philo *philo)
 {
@@ -37,7 +66,6 @@ int	main(int ac, char **av)
 	t_philo	philo;
 	t_info	info;
 	pid_t	*pid;
-	int		i;
 
 	if (args_manager(ac, av, &info) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
@@ -45,23 +73,7 @@ int	main(int ac, char **av)
 	if (init_philo(&philo, &pid) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	init_semaphores(&philo);
-	i = 0;
-	philo.info->start_time = get_current_time();
-	print_action(&philo, MSG_START);
-	while (i < philo.info->nbrp)
-	{
-		philo.id = i;
-		pid[i] = fork();
-		if (pid[i] == 0)
-			init_routine(&philo);
-		++i;
-	}
-	if (philo.info->must_eat != -1)
-	{
-		pid[i] = fork();
-		if (pid[i] == 0)
-			check_meals_routine(&philo);
-	}
+	start_simulation(&philo, &pid);
 	death_routine(pid, &philo);
 	finish_simulation(pid, &philo);
 	return (EXIT_SUCCESS);
