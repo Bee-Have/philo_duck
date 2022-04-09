@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 02:00:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/05 00:04:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 02:13:04 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,6 @@ int	calc_len(long nbr)
 		++len;
 	}
 	return (len);
-}
-
-char	*am_ltoa(long nbr)
-{
-	char	*res;
-	int		len;
-	int		i;
-
-	i = 0;
-	len = calc_len(nbr);
-	res = (char *)malloc((len + 1) * sizeof(char));
-	if (!res)
-		return (NULL);
-	res[len] = '\0';
-	while (i < len)
-	{
-		res[len - i - 1] = (nbr % 10) + '0';
-		nbr /= 10;
-		++i;
-	}
-	return (res);
 }
 
 long	am_atol(char *str)

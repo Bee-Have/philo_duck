@@ -39,6 +39,6 @@ clean:
 	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 .PHONY: fclean clean re all

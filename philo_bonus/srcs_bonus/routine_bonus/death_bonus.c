@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 22:14:48 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 03:46:49 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 02:33:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	death_routine(pid_t *pid, t_philo *philo)
 		philo->info->nbrp += 1;
 	while (i < philo->info->nbrp)
 	{
-		kill(pid[i], SIGQUIT);
+		kill(pid[i], SIGKILL);
 		++i;
 	}
 }

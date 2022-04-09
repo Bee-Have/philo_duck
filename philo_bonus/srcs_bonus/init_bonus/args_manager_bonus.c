@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 14:35:32 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 06:09:49 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 02:26:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,12 @@ int	args_manager(int ac, char **av, t_info *info)
 		return (-1);
 	}
 	if (init_info(ac, av, info) == EXIT_FAILURE
-		|| info->nbrp <= 0 || info->nbrp > INT_MAX
+		|| info->nbrp <= 0 || info->nbrp > 200)
+	{
+		error_manager(ERNO_PHILO);
+		return (EXIT_FAILURE);
+	}
+	else if (init_info(ac, av, info) == EXIT_FAILURE
 		|| info->time_die <= 0 || info->time_die > INT_MAX
 		|| info->time_eat <= 0 || info->time_eat > INT_MAX
 		|| info->time_sleep <= 0 || info->time_sleep > INT_MAX)

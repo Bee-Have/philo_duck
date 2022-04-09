@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:09:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/09 00:55:12 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 02:07:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,12 @@ int	init_info(int ac, char **av, t_info *info)
 	return (EXIT_SUCCESS);
 }
 
-int	init_philo(t_philo *philo, pid_t **pid)
+int	init_philo(t_philo *philo)
 {
 	philo->id = 0;
 	philo->dead = 0;
 	philo->meals_nbr = 0;
 	philo->last_meal = 0;
-	(void)pid;
-	if (philo->info->must_eat != -1)
-		*pid = (pid_t *)malloc((philo->info->nbrp + 1) * sizeof(pid_t));
-	else
-		*pid = (pid_t *)malloc(philo->info->nbrp * sizeof(pid_t));
-	if (!*pid)
-		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
 

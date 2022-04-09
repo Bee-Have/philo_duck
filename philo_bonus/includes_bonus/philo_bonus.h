@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 06:12:12 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 02:22:27 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@
 # define SEM_WRITE "/sem_write"
 
 # define ERNO_FORMAT 0
-# define ERNO_ARGS 1
+# define ERNO_PHILO 1
+# define ERNO_ARGS 2
 
 # define MSG_START 0
 # define MSG_FORK_ON 1
@@ -76,7 +77,7 @@ typedef struct s_philo
 int		args_manager(int ac, char **av, t_info *info);
 //init / malloc
 int		init_info(int ac, char **av, t_info *info);
-int		init_philo(t_philo *philo, pid_t **pid);
+int		init_philo(t_philo *philo);
 void	init_semaphores(t_philo *philo);
 
 //?			routine
@@ -110,7 +111,6 @@ char	*am_strjoin(char *prefix, char *sufix);
 void	am_bzero(char *str, int len);
 //nbrs
 int		calc_len(long nbr);
-char	*am_ltoa(long nbr);
 long	am_atol(char *str);
 
 //!			error

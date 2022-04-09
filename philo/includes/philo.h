@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 13:57:35 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 07:37:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 02:12:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ char	*am_strjoin(char *prefix, char *sufix);
 void	am_bzero(char *str, int len);
 //nbrs
 int		calc_len(long nbr);
-char	*am_ltoa(long nbr);
 long	am_atol(char *str);
 
 //!error
