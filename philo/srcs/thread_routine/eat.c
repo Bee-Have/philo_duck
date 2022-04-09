@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 14:12:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 07:38:37 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 03:59:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@ int	lock_fork_even(t_philo *philo)
 {
 	int	index;
 
-	pthread_mutex_lock(&(philo->info->forks[philo->id]));
-	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
-	{
-		pthread_mutex_unlock(&(philo->info->forks[philo->id]));
-		return (EXIT_FAILURE);
-	}
 	if (philo->id == philo->info->nbrp - 1)
 		index = 0;
 	else
 		index = philo->id + 1;
+	pthread_mutex_lock(&(philo->info->forks[philo->id]));
+	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE
+		|| philo->id == index)
+	{
+		pthread_mutex_unlock(&(philo->info->forks[philo->id]));
+		return (EXIT_FAILURE);
+	}
 	pthread_mutex_lock(&(philo->info->forks[index]));
 	if (print_action(philo->info, philo->id, MSG_FORK_ON) == EXIT_FAILURE)
 	{

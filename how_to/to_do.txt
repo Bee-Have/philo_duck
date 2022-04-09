@@ -1,8 +1,3 @@
-Issue - When there is only one philo, he die right away without closing the program.
-Format - Be careful that the death msg is the last one.
-
-for each process, the start time must be the same
-it could be a shared var ?
-	only one call of get_current_time()
-set right before the fork
-which means last_meal must also be set at the time
+Use CC compilater instead of gcc
+If one philo you don't unlock your mutex
+At the end program you don' unlock all lock mutex

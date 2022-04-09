@@ -6,23 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:48:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/06 05:09:19 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/09 03:56:29 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-static void	unlock_all_forks(t_info *all_info)
-{
-	int	i;
-
-	i = 0;
-	while (i < all_info->nbrp)
-	{
-		pthread_mutex_unlock(&(all_info->forks[i]));
-		++i;
-	}
-}
 
 void	*god_routine(void *humans)
 {
@@ -40,7 +28,6 @@ void	*god_routine(void *humans)
 			pthread_mutex_lock(&philo->info->death);
 			all_info->dead = 1;
 			pthread_mutex_unlock(&philo->info->death);
-			unlock_all_forks(all_info);
 			break ;
 		}
 		usleep(1000);
