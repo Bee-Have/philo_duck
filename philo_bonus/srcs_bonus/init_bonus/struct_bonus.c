@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 06:09:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/09 04:48:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:15:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ void	init_semaphores(t_philo *philo)
 	sem_unlink(SEM_PICK_FORK);
 	sem_unlink(SEM_MEALS);
 	sem_unlink(SEM_DEATH);
-	sem_unlink(SEM_WRITE);
 	philo->sem_forks = sem_open(SEM_FORKS, O_CREAT, 0777, philo->info->nbrp);
 	philo->sem_pick_fork = sem_open(SEM_PICK_FORK, O_CREAT, 0777, 1);
 	philo->sem_meals = sem_open(SEM_MEALS, O_CREAT, 0777, 0);
 	philo->sem_death = sem_open(SEM_DEATH, O_CREAT, 0777, 0);
-	philo->sem_write = sem_open(SEM_WRITE, O_CREAT, 0777, 1);
 }

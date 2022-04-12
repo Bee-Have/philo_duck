@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:34:26 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/09 02:22:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:14:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # define SEM_PICK_FORK "/sem_pick_fork"
 # define SEM_FORKS "/sem_fork"
 # define SEM_MEALS "/sem_meals"
-# define SEM_WRITE "/sem_write"
 
 # define ERNO_FORMAT 0
 # define ERNO_PHILO 1
@@ -61,7 +60,6 @@ typedef struct s_philo
 	sem_t			*sem_pick_fork;
 	sem_t			*sem_forks;
 	sem_t			*sem_meals;
-	sem_t			*sem_write;
 	int				id;
 	t_info			*info;
 	pthread_mutex_t	death;

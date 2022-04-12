@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 18:21:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/09 02:43:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:15:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,10 @@ void	finish_simulation(pid_t pid[201], t_philo *philo)
 	sem_close(philo->sem_pick_fork);
 	sem_close(philo->sem_meals);
 	sem_close(philo->sem_death);
-	sem_close(philo->sem_write);
 	sem_unlink(SEM_FORKS);
 	sem_unlink(SEM_PICK_FORK);
 	sem_unlink(SEM_DEATH);
 	sem_unlink(SEM_MEALS);
-	sem_unlink(SEM_WRITE);
 }
 
 int	main(int ac, char **av)

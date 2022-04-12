@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 17:55:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/04/09 05:11:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:15:29 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	*check_vitals(void *human)
 		pthread_mutex_unlock(&philo->meal);
 		if (elapsed >= all_info->time_die)
 		{
-			sem_wait(philo->sem_write);
 			print_action(philo, MSG_DIED);
 			pthread_mutex_lock(&philo->death);
 			philo->dead = 1;
