@@ -1,3 +1,0 @@
-Use CC compilater instead of gcc
-If one philo you don't unlock your mutex
-At the end program you don' unlock all lock mutex

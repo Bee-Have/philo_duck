@@ -1,5 +1,0 @@
-start thread :
-pthread_create()
-
-kill thread :
-pthread_exit(int)
